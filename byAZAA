@@ -1,0 +1,2734 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinés-Pays 2026 — 18ᵉ édition | Festival des 6 cinémas de Brocéliande</title>
+<meta name="description" content="18ᵉ festival Cinés-Pays, du 21 au 27 octobre 2026 : 196 séances, 39 films, 6 cinémas associatifs en Brocéliande (Bréal, Montauban, Montfort, Plélan, Romillé, Saint-Méen).">
+<meta name="theme-color" content="#07130f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cinés-Pays 2026 — 18ᵉ édition">
+<meta property="og:description" content="Du 21 au 27 octobre 2026, 196 séances dans les 6 cinémas associatifs de Brocéliande.">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%9E%EF%B8%8F</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   CINÉS-PAYS 2026 — feuille de style unique, sans librairie externe.
+   ===================================================================== */
+:root{
+  --nuit:#07130f; --sous-bois:#0c1f19; --carte:rgba(255,255,255,.045);
+  --trait:rgba(255,255,255,.1); --or:#f2b544; --or-fonce:#c98a1c;
+  --braise:#ff6f43; --mousse:#7fd8b0;
+  --pass-a:#eb2f6b; --pass-b:#8a2be2;
+  --texte:#f6f7f4; --doux:#a9bdb2;
+  --r:14px; --ease:cubic-bezier(.16,1,.3,1); --haut:70px;
+  --tf:'Bricolage Grotesque','Trebuchet MS',sans-serif;
+  --tc:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--haut) + 14px);-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--tc);background:var(--nuit);color:var(--texte);line-height:1.6;overflow-x:hidden;
+  background-image:radial-gradient(1100px 620px at 78% -8%,rgba(242,181,68,.12),transparent 62%),
+                   radial-gradient(760px 520px at 8% 12%,rgba(127,216,176,.07),transparent 60%);
+}
+a{color:inherit;text-decoration:none} ul,ol{list-style:none} img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px;border-radius:8px}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic--p{fill:currentColor;stroke:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+/* ------------------------------------------------------------- EN-TÊTE */
+.bandeau{
+  position:fixed;top:0;left:0;width:100%;z-index:900;display:flex;align-items:center;
+  justify-content:space-between;gap:1rem;padding:.9rem 5%;transition:background .35s var(--ease),padding .35s var(--ease);
+}
+.bandeau.colle{background:rgba(7,19,15,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  padding:.55rem 5%;border-bottom:1px solid rgba(242,181,68,.18)}
+.marque{display:flex;align-items:center;gap:.65rem;z-index:902}
+.marque__pic{width:38px;height:38px;border-radius:10px;flex:none;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--or),var(--braise));color:#160c02}
+.marque__t{font-family:var(--tf);font-weight:800;font-size:1.12rem;letter-spacing:-.4px;line-height:1}
+.marque__s{display:block;font-family:var(--tc);font-weight:400;font-size:.68rem;color:var(--doux);letter-spacing:.6px}
+.menu{display:flex;align-items:center;gap:1.6rem}
+.menu a{font-size:.86rem;font-weight:500;position:relative;padding:.3rem 0}
+.menu a::after{content:'';position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--or);transition:width .3s var(--ease)}
+.menu a:hover{color:var(--or)} .menu a:hover::after{width:100%}
+.menu .bt{padding:.55rem 1.1rem;font-size:.82rem} .menu .bt::after{display:none}
+.burger{display:none;width:42px;height:42px;place-items:center;z-index:902}
+.burger span{display:block;width:23px;height:2px;background:var(--texte);transition:transform .35s var(--ease),opacity .2s}
+.burger span+span{margin-top:6px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg);background:var(--or)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg);background:var(--or)}
+
+/* ------------------------------------------------------------- BOUTONS */
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.7rem;
+  border-radius:999px;font-weight:600;font-size:.9rem;border:2px solid var(--or);background:var(--or);color:#160c02;
+  transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
+.bt:hover{background:transparent;color:var(--or);transform:translateY(-2px)}
+.bt--v{background:transparent;color:var(--texte);border-color:rgba(255,255,255,.28)}
+.bt--v:hover{border-color:var(--or);color:var(--or);background:rgba(242,181,68,.08)}
+.bt--p{background:linear-gradient(120deg,var(--pass-a),var(--pass-b));border-color:transparent;color:#fff}
+.bt--p:hover{background:linear-gradient(120deg,var(--pass-b),var(--pass-a));color:#fff}
+.bt--s{padding:.5rem 1.05rem;font-size:.8rem;border-width:1px}
+
+/* ------------------------------------------------------------- ACCUEIL */
+.une{min-height:100vh;min-height:100svh;display:grid;align-content:center;padding:calc(var(--haut) + 3rem) 5% 4rem;position:relative;overflow:hidden}
+.une::before{content:'';position:absolute;inset:auto -10% -30% -10%;height:60%;
+  background:radial-gradient(60% 100% at 50% 100%,rgba(255,111,67,.16),transparent 70%);pointer-events:none}
+.une__in{max-width:1180px;margin:0 auto;width:100%;position:relative;z-index:2}
+.edition{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem;border-radius:999px;
+  border:1px solid rgba(242,181,68,.45);background:rgba(242,181,68,.1);color:var(--or);
+  font-weight:600;font-size:.82rem;letter-spacing:.4px;margin-bottom:1.6rem}
+.une h1{font-family:var(--tf);font-weight:800;letter-spacing:-2px;line-height:.92;
+  font-size:clamp(3rem,12vw,8.5rem);margin-bottom:.4rem}
+.une h1 .trait{background:linear-gradient(100deg,var(--or),var(--braise));-webkit-background-clip:text;background-clip:text;color:transparent}
+.dates{font-family:var(--tf);font-weight:600;font-size:clamp(1.05rem,2.6vw,1.7rem);color:var(--texte);margin-bottom:1.3rem}
+.dates b{color:var(--or)}
+.une p.intro{max-width:56ch;color:var(--doux);font-size:clamp(1rem,1.7vw,1.15rem);margin-bottom:2.2rem}
+.une__bt{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:3rem}
+.chiffres{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:var(--trait);
+  border:1px solid var(--trait);border-radius:var(--r);overflow:hidden}
+.chiffres div{background:var(--nuit);padding:1.1rem .9rem;text-align:center}
+.chiffres b{display:block;font-family:var(--tf);font-weight:800;font-size:1.9rem;color:var(--or);line-height:1}
+.chiffres span{font-size:.76rem;color:var(--doux);letter-spacing:.4px}
+
+/* ------------------------------------------------------------- SECTIONS */
+.sec{padding:5.5rem 5%;position:relative;z-index:2}
+.sec__tete{max-width:1180px;margin:0 auto 2.6rem}
+.sec__tete h2{font-family:var(--tf);font-weight:800;letter-spacing:-1px;font-size:clamp(1.9rem,4.2vw,3rem);line-height:1.05}
+.sec__tete p{color:var(--doux);margin-top:.7rem;max-width:62ch}
+.duo{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem}
+.bloc{background:var(--carte);border:1px solid var(--trait);border-radius:var(--r);padding:1.7rem;
+  transition:transform .4s var(--ease),border-color .4s var(--ease)}
+.bloc:hover{transform:translateY(-5px);border-color:rgba(242,181,68,.4)}
+.bloc h3{font-family:var(--tf);font-weight:600;font-size:1.15rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.bloc h3 .ic{color:var(--or);font-size:1.15rem}
+.bloc p{color:var(--doux);font-size:.94rem}
+
+/* ------------------------------------------------------------- CINÉMAS */
+.cines{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.carte-cine{display:flex;flex-direction:column;gap:.25rem;padding:1.4rem;border-radius:var(--r);
+  background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border:1px solid var(--trait);transition:transform .35s var(--ease),border-color .35s var(--ease)}
+.carte-cine:hover{transform:translateY(-5px);border-color:var(--or)}
+.carte-cine__ville{font-size:.74rem;color:var(--doux);letter-spacing:.5px}
+.carte-cine__nom{font-family:var(--tf);font-weight:800;font-size:1.3rem;letter-spacing:-.5px}
+.carte-cine__nb{font-size:.8rem;color:var(--or);font-weight:600;margin-top:.3rem}
+
+/* ------------------------------------------------------------- PROGRAMME */
+#programme{background:linear-gradient(180deg,transparent,rgba(12,31,25,.75) 10%,rgba(12,31,25,.75) 92%,transparent)}
+.onglets{max-width:1180px;margin:0 auto 1.4rem;display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.4rem;scrollbar-width:thin}
+.onglet{flex:none;display:flex;flex-direction:column;align-items:flex-start;gap:.1rem;
+  padding:.65rem 1.1rem;border-radius:12px;border:1px solid var(--trait);background:rgba(255,255,255,.03);
+  transition:all .28s var(--ease)}
+.onglet span{font-family:var(--tf);font-weight:600;font-size:.95rem}
+.onglet small{font-size:.68rem;color:var(--doux)}
+.onglet:hover{border-color:rgba(242,181,68,.55)}
+.onglet[aria-selected="true"]{background:var(--or);border-color:var(--or);color:#160c02}
+.onglet[aria-selected="true"] small{color:rgba(22,12,2,.7)}
+
+.filtres{max-width:1180px;margin:0 auto 1.6rem;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.filtres b{font-size:.76rem;color:var(--doux);font-weight:500;margin-right:.3rem}
+.fj{padding:.38rem .8rem;border-radius:999px;border:1px solid var(--trait);background:rgba(255,255,255,.03);
+  font-size:.78rem;color:var(--doux);transition:all .25s var(--ease)}
+.fj:hover{color:var(--texte);border-color:rgba(242,181,68,.5)}
+.fj[aria-pressed="true"]{background:rgba(242,181,68,.16);border-color:var(--or);color:var(--or);font-weight:600}
+
+.panneau{max-width:1180px;margin:0 auto}
+.panneau[hidden]{display:none}
+.salle-tete{display:grid;grid-template-columns:1.3fr 1fr;gap:1.4rem;align-items:start;
+  padding:1.6rem;border-radius:var(--r);border:1px solid var(--trait);
+  background:linear-gradient(140deg,rgba(242,181,68,.09),rgba(255,255,255,.02));margin-bottom:1.8rem}
+.salle-tete__ville{font-size:.78rem;color:var(--or);letter-spacing:1px;text-transform:uppercase}
+.salle-tete__nom{font-family:var(--tf);font-weight:800;font-size:clamp(1.7rem,3.6vw,2.4rem);letter-spacing:-1px;line-height:1.05}
+.salle-tete__infos{color:var(--doux);font-size:.88rem;margin-top:.4rem}
+.salle-tete__meta p{display:flex;gap:.55rem;align-items:flex-start;font-size:.88rem;color:var(--doux);margin-bottom:.45rem}
+.salle-tete__meta .ic{color:var(--or);margin-top:.25rem}
+.salle-tete__meta a:hover{color:var(--or)}
+.salle-tete__nb{color:var(--texte)!important} .salle-tete__nb b{color:var(--or);font-size:1.05rem}
+.salle-tete__liens{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem}
+
+.jours{display:grid;gap:1.1rem}
+.jour{border:1px solid var(--trait);border-radius:var(--r);overflow:hidden;background:rgba(255,255,255,.025)}
+.jour[hidden]{display:none}
+.jour__titre{display:flex;align-items:baseline;gap:.6rem;padding:.85rem 1.2rem;
+  background:linear-gradient(90deg,rgba(242,181,68,.14),transparent);border-bottom:1px solid var(--trait)}
+.jour__titre span{font-family:var(--tf);font-weight:800;font-size:1.05rem;letter-spacing:-.3px}
+.jour__titre b{font-weight:400;font-size:.82rem;color:var(--doux)}
+.seances{display:grid}
+.seance{display:grid;grid-template-columns:78px 1fr;gap:.9rem;align-items:baseline;
+  padding:.72rem 1.2rem;border-top:1px solid rgba(255,255,255,.055)}
+.seance:first-child{border-top:none}
+.seance:hover{background:rgba(255,255,255,.035)}
+.seance__h{font-family:var(--tf);font-weight:600;font-size:.98rem;color:var(--or)}
+.seance__t{font-size:.96rem}
+.seance--stage{background:rgba(127,216,176,.07)}
+.seance--stage .seance__h{color:var(--mousse)}
+.tags{display:inline-flex;flex-wrap:wrap;gap:.35rem;margin-left:.5rem;vertical-align:middle}
+.tag{display:inline-block;padding:.1rem .5rem;border-radius:999px;font-size:.66rem;font-weight:600;letter-spacing:.3px;
+  border:1px solid currentColor;opacity:.92;white-space:nowrap}
+.tag--salle{color:var(--doux)} .tag--sn{color:var(--or)} .tag--avp{color:var(--braise)}
+.tag--vost{color:#9fc4ff} .tag--cj{color:var(--mousse)} .tag--renc{color:#e8a2ff}
+.legende{max-width:1180px;margin:1.6rem auto 0;display:flex;flex-wrap:wrap;gap:.9rem;font-size:.76rem;color:var(--doux)}
+
+/* ------------------------------------------------------------- FILMS */
+.films{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.1rem}
+.film__aff{position:relative;aspect-ratio:2/3;border-radius:11px;overflow:hidden;display:grid;place-items:center;
+  border:1px solid var(--trait);background:linear-gradient(155deg,#17312a,#0a1a15)}
+.film--jeune .film__aff{background:linear-gradient(155deg,#2a2413,#140f07)}
+.film__txt{padding:.9rem;text-align:center;font-family:var(--tf);font-weight:600;font-size:.92rem;line-height:1.2;color:var(--or);letter-spacing:-.2px}
+.film--jeune .film__txt{color:var(--braise)}
+.film__aff img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film figcaption{display:flex;flex-direction:column;gap:.1rem;padding:.55rem .15rem 0}
+.film__nom{font-size:.84rem;font-weight:500;line-height:1.25}
+.film__nb{font-size:.72rem;color:var(--doux)}
+
+/* ------------------------------------------------------------- ANIMATIONS */
+.anim{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
+.anim ul{display:grid;gap:.6rem;margin-top:1rem}
+.anim li{display:grid;gap:.05rem;padding:.65rem .8rem;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--trait)}
+.anim li b{font-size:.92rem;font-weight:600}
+.anim li span{font-size:.79rem;color:var(--doux)}
+.anim li em{font-style:normal;font-size:.78rem;color:var(--or)}
+
+/* ------------------------------------------------------------- PASS / TARIFS */
+.tarifs{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:1.4rem;align-items:start}
+.prix{display:grid;gap:.7rem}
+.prix li{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem 1.1rem;
+  border-radius:12px;background:var(--carte);border:1px solid var(--trait)}
+.prix li b{font-family:var(--tf);font-weight:600;font-size:1rem}
+.prix li span{color:var(--doux);font-size:.8rem;display:block;font-weight:400;font-family:var(--tc)}
+.prix li em{font-style:normal;font-family:var(--tf);font-weight:800;font-size:1.25rem;color:var(--or);white-space:nowrap}
+.pass{padding:1.8rem;border-radius:var(--r);border:1px solid rgba(190,60,190,.45);
+  background:linear-gradient(135deg,rgba(235,47,107,.18),rgba(138,43,226,.22) 60%,rgba(7,19,15,.9))}
+.pass h3{font-family:var(--tf);font-weight:800;font-size:1.4rem;margin-bottom:.6rem}
+.pass p{color:#e8ddf2;font-size:.92rem;margin-bottom:1.2rem}
+.carte-pass{width:100%;max-width:250px;aspect-ratio:1.586/1;border-radius:14px;padding:1rem 1.15rem;margin-bottom:1.2rem;
+  background:linear-gradient(140deg,var(--pass-a),var(--pass-b));box-shadow:0 16px 34px rgba(120,30,160,.42);
+  display:flex;flex-direction:column;justify-content:space-between;color:#fff;position:relative;overflow:hidden;
+  transition:transform .4s var(--ease)}
+.carte-pass:hover{transform:translateY(-4px) rotate(-1.4deg)}
+.carte-pass::after{content:'';position:absolute;right:-38px;bottom:-50px;width:135px;height:135px;border-radius:50%;background:rgba(255,255,255,.14)}
+.carte-pass svg{width:32px;height:32px;position:relative;z-index:1}
+.carte-pass__m{position:relative;z-index:1;font-family:var(--tf);font-weight:800;font-size:1.3rem;line-height:1.02}
+.carte-pass__m span{display:block;font-weight:400;font-size:1.05rem}
+.carte-pass__p{position:relative;z-index:1;font-size:.64rem;letter-spacing:1px;opacity:.92}
+
+/* ------------------------------------------------------------- PIED */
+footer{background:#030907;border-top:1px solid var(--trait);padding:3.2rem 5% 2.2rem}
+.pied{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.6rem;margin-bottom:2.2rem}
+.pied h4{font-family:var(--tf);font-weight:600;font-size:.95rem;margin-bottom:.5rem}
+.pied p,.pied a{font-size:.82rem;color:var(--doux);display:block;margin-bottom:.22rem}
+.pied a:hover{color:var(--or)}
+.pied-bas{max-width:1180px;margin:0 auto;padding-top:1.4rem;border-top:1px solid var(--trait);
+  display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+.pied-bas p{font-size:.78rem;color:var(--doux)}
+.pied-bas nav{display:flex;flex-wrap:wrap;gap:.5rem}
+
+#haut{position:fixed;right:20px;bottom:20px;z-index:800;width:44px;height:44px;border-radius:50%;
+  display:grid;place-items:center;background:var(--or);color:#160c02;opacity:0;pointer-events:none;
+  transition:opacity .3s var(--ease),transform .3s var(--ease);box-shadow:0 8px 20px rgba(0,0,0,.5)}
+#haut.vu{opacity:1;pointer-events:auto} #haut:hover{transform:translateY(-3px)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.dedans{opacity:1;transform:none}
+
+/* ------------------------------------------------------------- MOBILE */
+@media (max-width:900px){
+  .salle-tete{grid-template-columns:1fr}
+  .tarifs{grid-template-columns:1fr}
+}
+@media (max-width:820px){
+  :root{--haut:62px}
+  .burger{display:grid}
+  .menu{position:fixed;inset:0;z-index:901;flex-direction:column;justify-content:center;gap:1.8rem;
+    background:rgba(7,19,15,.98);backdrop-filter:blur(14px);transform:translateX(100%);opacity:0;visibility:hidden;
+    transition:transform .4s var(--ease),opacity .25s,visibility .25s}
+  .menu.ouvert{transform:none;opacity:1;visibility:visible}
+  .menu a{font-size:1.15rem}
+  .sec{padding:4rem 5%}
+  .seance{grid-template-columns:64px 1fr;gap:.6rem;padding:.65rem .85rem}
+  .films{grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:.8rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.4 3h3l1.5 4-2 1.4a12.4 12.4 0 0 0 6.7 6.7l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A17.2 17.2 0 0 1 4.4 5.2 2 2 0 0 1 6.4 3Z"/></symbol>
+  <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.2 12h17.6"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.6 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.6V3.6A22 22 0 0 0 14.4 3.5c-2.6 0-4.3 1.6-4.3 4.4v2H7.4V13h2.7v8Z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.9"/><path d="M16.9 7.1h.01"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="M8 4.5v15M16 4.5v15M3 12h18M3 8.2h5M3 15.8h5M16 8.2h5M16 15.8h5"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1.6a2.4 2.4 0 0 0 0 4.8V16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-1.6a2.4 2.4 0 0 0 0-4.8Z"/><path d="M14 6v12"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.2 2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L3.4 9.5l6-.8Z"/></symbol>
+  <symbol id="i-haut" viewBox="0 0 24 24"><path d="M12 19.5V5m0 0-6.5 6.5M12 5l6.5 6.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0"/><path d="M16.5 5.2a3.4 3.4 0 0 1 0 5.8M17.8 14.2a6.2 6.2 0 0 1 3.4 5.8"/></symbol>
+  <symbol id="i-cam" viewBox="0 0 24 24"><rect x="2.8" y="7" width="12.4" height="10" rx="2.4"/><path d="m15.2 12 6 3.4v-6.8L15.2 12Z"/></symbol>
+</svg>
+
+<header class="bandeau" id="bandeau">
+  <a class="marque" href="#accueil">
+    <span class="marque__pic" aria-hidden="true"><svg class="ic" style="font-size:1.15rem"><use href="#i-film"></use></svg></span>
+    <span class="marque__t">Cinés-Pays<span class="marque__s">18ᵉ édition · 2026</span></span>
+  </a>
+  <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="menu" id="menu" aria-label="Navigation principale">
+    <a href="#festival">Le festival</a>
+    <a href="#cinemas">Les cinémas</a>
+    <a href="#programme">Programme</a>
+    <a href="#films">Les films</a>
+    <a href="#animations">Animations</a>
+    <a href="#tarifs" class="bt bt--s">Tarifs</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ====================== ACCUEIL ====================== -->
+<section class="une" id="accueil">
+  <div class="une__in">
+    <p class="edition"><svg class="ic ic--p" aria-hidden="true"><use href="#i-star"></use></svg> 18ᵉ édition du festival</p>
+    <h1>Cinés<span class="trait">-</span>Pays<br><span class="trait">2026</span></h1>
+    <p class="dates">Du <b>mercredi 21</b> au <b>mardi 27 octobre 2026</b> · vacances de la Toussaint</p>
+    <p class="intro">Une folle semaine de cinéma dans les six salles associatives de Brocéliande. Sorties nationales, avant-premières, films pour les petits et les grands, ateliers et rencontres — le tout à deux pas de chez vous.</p>
+    <div class="une__bt">
+      <a href="#programme" class="bt"><svg class="ic" aria-hidden="true"><use href="#i-film"></use></svg> Voir le programme</a>
+      <a href="#cinemas" class="bt bt--v">Choisir mon cinéma</a>
+    </div>
+    <div class="chiffres">
+      <div><b>6</b><span>cinémas</span></div>
+      <div><b>8</b><span>salles</span></div>
+      <div><b>196</b><span>séances</span></div>
+      <div><b>39</b><span>films</span></div>
+      <div><b>7</b><span>jours</span></div>
+      <div><b>300</b><span>bénévoles</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== LE FESTIVAL ====================== -->
+<section class="sec" id="festival">
+  <div class="sec__tete reveal">
+    <h2>C'est quoi, Cinés-Pays&nbsp;?</h2>
+    <p>Le rendez-vous annuel des six cinémas associatifs de Brocéliande. Une semaine, six villes, un même plaisir : voir des films ensemble.</p>
+  </div>
+  <div class="duo">
+    <div class="bloc reveal">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-users"></use></svg> Six salles, une équipe</h3>
+      <p>Bréal, Montauban, Montfort, Plélan, Romillé et Saint-Méen s'associent chaque automne. Derrière les projecteurs, 300 bénévoles font tourner la semaine.</p>
+    </div>
+    <div class="bloc reveal">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-film"></use></svg> Du choix pour tout le monde</h3>
+      <p>39 films à l'affiche : sorties nationales, avant-premières, séances jeune public dès le matin et grands rendez-vous du soir.</p>
+    </div>
+    <div class="bloc reveal">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-cam"></use></svg> Pas que des projections</h3>
+      <p>Stages mini-film pour les 8–11 ans, séances Ciné-Jeunes, avant-premières suivies d'échanges avec des équipes de film et des associations.</p>
+    </div>
+    <div class="bloc reveal">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-ticket"></use></svg> Le prix d'un ticket</h3>
+      <p>Un tarif unique pour toutes les séances du festival, des places à 3 € pour les séances jeune public spéciales, et le Pass Culture accepté.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== LES CINÉMAS ====================== -->
+<section class="sec" id="cinemas">
+  <div class="sec__tete reveal">
+    <h2>Les six cinémas</h2>
+    <p>Cliquez sur une salle pour ouvrir son programme complet, jour par jour.</p>
+  </div>
+  <div class="cines">
+      <a class="carte-cine reveal" href="#programme" data-goto="bobine">
+        <span class="carte-cine__ville">Bréal-sous-Montfort</span>
+        <span class="carte-cine__nom">La Bobine</span>
+        <span class="carte-cine__nb">41 séances</span>
+      </a>
+      <a class="carte-cine reveal" href="#programme" data-goto="montal">
+        <span class="carte-cine__ville">Montauban-de-Bretagne</span>
+        <span class="carte-cine__nom">Ciné-Montal</span>
+        <span class="carte-cine__nb">26 séances</span>
+      </a>
+      <a class="carte-cine reveal" href="#programme" data-goto="cane">
+        <span class="carte-cine__ville">Montfort-sur-Meu</span>
+        <span class="carte-cine__nom">La Cane</span>
+        <span class="carte-cine__nb">26 séances</span>
+      </a>
+      <a class="carte-cine reveal" href="#programme" data-goto="hermine">
+        <span class="carte-cine__ville">Plélan-le-Grand</span>
+        <span class="carte-cine__nom">L&#x27;Hermine</span>
+        <span class="carte-cine__nb">24 séances</span>
+      </a>
+      <a class="carte-cine reveal" href="#programme" data-goto="korrigan">
+        <span class="carte-cine__ville">Romillé</span>
+        <span class="carte-cine__nom">Le Korrigan</span>
+        <span class="carte-cine__nb">27 séances</span>
+      </a>
+      <a class="carte-cine reveal" href="#programme" data-goto="celtic">
+        <span class="carte-cine__ville">Saint-Méen-le-Grand</span>
+        <span class="carte-cine__nom">Le Celtic</span>
+        <span class="carte-cine__nb">52 séances</span>
+      </a>
+  </div>
+</section>
+
+<!-- ====================== PROGRAMME ====================== -->
+<section class="sec" id="programme">
+  <div class="sec__tete reveal">
+    <h2>Le programme, salle par salle</h2>
+    <p>Sept jours de séances, du mercredi 21 au mardi 27 octobre 2026.</p>
+  </div>
+
+  <div class="onglets" role="tablist" aria-label="Choisir un cinéma">
+    <button class="onglet" id="onglet-bobine" role="tab" aria-controls="panneau-bobine" aria-selected="false" data-cine="bobine"><span>La Bobine</span><small>Bréal-sous-Montfort</small></button>
+    <button class="onglet" id="onglet-montal" role="tab" aria-controls="panneau-montal" aria-selected="false" data-cine="montal"><span>Ciné-Montal</span><small>Montauban-de-Bretagne</small></button>
+    <button class="onglet" id="onglet-cane" role="tab" aria-controls="panneau-cane" aria-selected="false" data-cine="cane"><span>La Cane</span><small>Montfort-sur-Meu</small></button>
+    <button class="onglet" id="onglet-hermine" role="tab" aria-controls="panneau-hermine" aria-selected="false" data-cine="hermine"><span>L&#x27;Hermine</span><small>Plélan-le-Grand</small></button>
+    <button class="onglet" id="onglet-korrigan" role="tab" aria-controls="panneau-korrigan" aria-selected="false" data-cine="korrigan"><span>Le Korrigan</span><small>Romillé</small></button>
+    <button class="onglet" id="onglet-celtic" role="tab" aria-controls="panneau-celtic" aria-selected="false" data-cine="celtic"><span>Le Celtic</span><small>Saint-Méen-le-Grand</small></button>
+  </div>
+
+  <div class="filtres" role="group" aria-label="Filtrer par jour">
+    <b>Jour&nbsp;:</b>
+    <button class="fj" data-jour="tous" aria-pressed="true">Toute la semaine</button>
+    <button class="fj" data-jour="mercredi-21" aria-pressed="false">Mer 21</button>
+    <button class="fj" data-jour="jeudi-22" aria-pressed="false">Jeu 22</button>
+    <button class="fj" data-jour="vendredi-23" aria-pressed="false">Ven 23</button>
+    <button class="fj" data-jour="samedi-24" aria-pressed="false">Sam 24</button>
+    <button class="fj" data-jour="dimanche-25" aria-pressed="false">Dim 25</button>
+    <button class="fj" data-jour="lundi-26" aria-pressed="false">Lun 26</button>
+    <button class="fj" data-jour="mardi-27" aria-pressed="false">Mar 27</button>
+  </div>
+
+  <div class="panneau" id="panneau-bobine" role="tabpanel" aria-labelledby="onglet-bobine" tabindex="0" hidden>
+    <div class="salle-tete">
+      <div class="salle-tete__id">
+        <p class="salle-tete__ville">Bréal-sous-Montfort</p>
+        <h3 class="salle-tete__nom">La Bobine</h3>
+        <p class="salle-tete__infos">2 salles · classé Art &amp; Essai · label Jeune public du CNC</p>
+      </div>
+      <div class="salle-tete__meta">
+        <p><svg class="ic"><use href="#i-pin"></use></svg> 30 rue de la Petite Motte, 35310 Bréal-sous-Montfort</p>
+        <p><svg class="ic"><use href="#i-tel"></use></svg> <a href="tel:+33223411962">02 23 41 19 62</a></p>
+        <p class="salle-tete__nb"><b>41</b> séances pendant le festival</p>
+      </div>
+      <div class="salle-tete__liens" data-liens="bobine"></div>
+    </div>
+    <div class="jours">
+      <div class="jour" data-jour="mercredi-21">
+        <h4 class="jour__titre"><span>Mercredi</span><b>21 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Monde à l&#x27;envers</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Joyeuse Jungle !</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Kerity, la maison des contes</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span><span class="tag tag--cj">Ciné-Jeunes</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Doraemon et le Château sous-marin</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Karma</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="jeudi-22">
+        <h4 class="jour__titre"><span>Jeudi</span><b>22 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Joyeuse Jungle !</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ni vue, ni connue</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Karma</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="vendredi-23">
+        <h4 class="jour__titre"><span>Vendredi</span><b>23 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Doraemon et le Château sous-marin</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Monde à l&#x27;envers</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Digger</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Karma</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ni vue, ni connue</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Hunger Games : La Révolte — Partie 1</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="samedi-24">
+        <h4 class="jour__titre"><span>Samedi</span><b>24 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Digger</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h45</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Karma</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="dimanche-25">
+        <h4 class="jour__titre"><span>Dimanche</span><b>25 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Monde à l&#x27;envers</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Joyeuse Jungle !</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Louve, une vie dans les Alpes</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span><span class="tag tag--avp">Avant-première</span><span class="tag tag--renc">Rencontre</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Doraemon et le Château sous-marin</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h45</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h45</span>
+            <span class="seance__d">
+              <span class="seance__t">Ni vue, ni connue</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Éléphants dans la brume</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="lundi-26">
+        <h4 class="jour__titre"><span>Lundi</span><b>26 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ni vue, ni connue</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Karma</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Digger</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="mardi-27">
+        <h4 class="jour__titre"><span>Mardi</span><b>27 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance seance--stage">
+            <span class="seance__h">9h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Stage mini-film</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span><span class="tag tag--renc">Atelier 8–11 ans · 2 €</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Doraemon et le Château sous-marin</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Karma</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panneau" id="panneau-montal" role="tabpanel" aria-labelledby="onglet-montal" tabindex="0" hidden>
+    <div class="salle-tete">
+      <div class="salle-tete__id">
+        <p class="salle-tete__ville">Montauban-de-Bretagne</p>
+        <h3 class="salle-tete__nom">Ciné-Montal</h3>
+        <p class="salle-tete__infos">1 salle de 143 places · classé Art &amp; Essai · boucle magnétique</p>
+      </div>
+      <div class="salle-tete__meta">
+        <p><svg class="ic"><use href="#i-pin"></use></svg> 28 rue du Perry, 35360 Montauban-de-Bretagne</p>
+        <p><svg class="ic"><use href="#i-tel"></use></svg> <a href="tel:+33299064430">02 99 06 44 30</a></p>
+        <p class="salle-tete__nb"><b>26</b> séances pendant le festival</p>
+      </div>
+      <div class="salle-tete__liens" data-liens="montal"></div>
+    </div>
+    <div class="jours">
+      <div class="jour" data-jour="mercredi-21">
+        <h4 class="jour__titre"><span>Mercredi</span><b>21 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Doraemon et le Château sous-marin</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+              <span class="tags"><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Mochy, le chien le plus moche du monde</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="jeudi-22">
+        <h4 class="jour__titre"><span>Jeudi</span><b>22 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">11h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Un amour d&#x27;épouvantail</span>
+              <span class="tags"><span class="tag tag--cj">Séance enfants</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Digger</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Louve, une vie dans les Alpes</span>
+              <span class="tags"><span class="tag tag--avp">Avant-première</span><span class="tag tag--renc">Rencontre</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="vendredi-23">
+        <h4 class="jour__titre"><span>Vendredi</span><b>23 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance seance--stage">
+            <span class="seance__h">9h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Stage mini-film</span>
+              <span class="tags"><span class="tag tag--renc">Atelier 8–11 ans · 2 €</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Même les souris vont au paradis</span>
+              <span class="tags"><span class="tag tag--cj">Ciné-Jeunes</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="samedi-24">
+        <h4 class="jour__titre"><span>Samedi</span><b>24 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">11h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Cygne et l&#x27;enfant</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+              <span class="tags"><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="dimanche-25">
+        <h4 class="jour__titre"><span>Dimanche</span><b>25 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Mochy, le chien le plus moche du monde</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="lundi-26">
+        <h4 class="jour__titre"><span>Lundi</span><b>26 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Mochy, le chien le plus moche du monde</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Doraemon et le Château sous-marin</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Digger</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="mardi-27">
+        <h4 class="jour__titre"><span>Mardi</span><b>27 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Chien bleu et autres belles histoires de l&#x27;école des loisirs</span>
+              <span class="tags"><span class="tag tag--cj">Séance enfants</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+              <span class="tags"><span class="tag tag--sn">Sortie nationale</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panneau" id="panneau-cane" role="tabpanel" aria-labelledby="onglet-cane" tabindex="0" hidden>
+    <div class="salle-tete">
+      <div class="salle-tete__id">
+        <p class="salle-tete__ville">Montfort-sur-Meu</p>
+        <h3 class="salle-tete__nom">La Cane</h3>
+        <p class="salle-tete__infos">1 salle de 264 fauteuils · classé Art &amp; Essai</p>
+      </div>
+      <div class="salle-tete__meta">
+        <p><svg class="ic"><use href="#i-pin"></use></svg> 13 boulevard Carnot, 35160 Montfort-sur-Meu</p>
+        <p><svg class="ic"><use href="#i-tel"></use></svg> <a href="tel:+33299090937">02 99 09 09 37</a></p>
+        <p class="salle-tete__nb"><b>26</b> séances pendant le festival</p>
+      </div>
+      <div class="salle-tete__liens" data-liens="cane"></div>
+    </div>
+    <div class="jours">
+      <div class="jour" data-jour="mercredi-21">
+        <h4 class="jour__titre"><span>Mercredi</span><b>21 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">11h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Chien bleu et autres belles histoires de l&#x27;école des loisirs</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="jeudi-22">
+        <h4 class="jour__titre"><span>Jeudi</span><b>22 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance seance--stage">
+            <span class="seance__h">9h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Stage mini-film</span>
+              <span class="tags"><span class="tag tag--renc">Atelier 8–11 ans · 2 €</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Mochy, le chien le plus moche du monde</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Tombé du ciel</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Justin, le juste</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="vendredi-23">
+        <h4 class="jour__titre"><span>Vendredi</span><b>23 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">11h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Joyeuse Jungle !</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Vie d&#x27;une femme</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="samedi-24">
+        <h4 class="jour__titre"><span>Samedi</span><b>24 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Mochy, le chien le plus moche du monde</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Notre salut</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="dimanche-25">
+        <h4 class="jour__titre"><span>Dimanche</span><b>25 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Un amour d&#x27;épouvantail</span>
+              <span class="tags"><span class="tag tag--cj">Mon Petit Ciné</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Moulin</span>
+              <span class="tags"><span class="tag tag--avp">Avant-première</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="lundi-26">
+        <h4 class="jour__titre"><span>Lundi</span><b>26 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">11h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Joyeuse Jungle !</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Spider-Man : Brand New Day</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Louve, une vie dans les Alpes</span>
+              <span class="tags"><span class="tag tag--avp">Avant-première</span><span class="tag tag--renc">Rencontre</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="mardi-27">
+        <h4 class="jour__titre"><span>Mardi</span><b>27 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Mochy, le chien le plus moche du monde</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Robot sauvage</span>
+              <span class="tags"><span class="tag tag--cj">Ciné-Jeunes</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Notre salut</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panneau" id="panneau-hermine" role="tabpanel" aria-labelledby="onglet-hermine" tabindex="0" hidden>
+    <div class="salle-tete">
+      <div class="salle-tete__id">
+        <p class="salle-tete__ville">Plélan-le-Grand</p>
+        <h3 class="salle-tete__nom">L&#x27;Hermine</h3>
+        <p class="salle-tete__infos">Salle d'Art &amp; Essai · accès PMR · boucle magnétique</p>
+      </div>
+      <div class="salle-tete__meta">
+        <p><svg class="ic"><use href="#i-pin"></use></svg> Rue de l&#x27;Hermine, 35380 Plélan-le-Grand</p>
+        <p><svg class="ic"><use href="#i-tel"></use></svg> <a href="tel:+33299068958">02 99 06 89 58</a></p>
+        <p class="salle-tete__nb"><b>24</b> séances pendant le festival</p>
+      </div>
+      <div class="salle-tete__liens" data-liens="hermine"></div>
+    </div>
+    <div class="jours">
+      <div class="jour" data-jour="mercredi-21">
+        <h4 class="jour__titre"><span>Mercredi</span><b>21 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h45</span>
+            <span class="seance__d">
+              <span class="seance__t">Chien bleu et autres belles histoires de l&#x27;école des loisirs</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">16h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Corset</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">18h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Camembert</span>
+              <span class="tags"><span class="tag tag--avp">Avant-première</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="jeudi-22">
+        <h4 class="jour__titre"><span>Jeudi</span><b>22 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Digger</span>
+              <span class="tags"><span class="tag tag--vost">VOST</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="vendredi-23">
+        <h4 class="jour__titre"><span>Vendredi</span><b>23 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Justin, le juste</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Fausse Note</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Corset</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="samedi-24">
+        <h4 class="jour__titre"><span>Samedi</span><b>24 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h45</span>
+            <span class="seance__d">
+              <span class="seance__t">Nouveaux copains à Puffin Rock</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Corset</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Sherlock Junior</span>
+              <span class="tags"><span class="tag tag--cj">Ciné-Jeunes</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Digger</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="dimanche-25">
+        <h4 class="jour__titre"><span>Dimanche</span><b>25 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Moulin</span>
+              <span class="tags"><span class="tag tag--avp">Avant-première</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Fausse Note</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="lundi-26">
+        <h4 class="jour__titre"><span>Lundi</span><b>26 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance seance--stage">
+            <span class="seance__h">9h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Stage mini-film</span>
+              <span class="tags"><span class="tag tag--renc">Atelier 8–11 ans · 2 €</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Justin, le juste</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="mardi-27">
+        <h4 class="jour__titre"><span>Mardi</span><b>27 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h00</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Roches rouges</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panneau" id="panneau-korrigan" role="tabpanel" aria-labelledby="onglet-korrigan" tabindex="0" hidden>
+    <div class="salle-tete">
+      <div class="salle-tete__id">
+        <p class="salle-tete__ville">Romillé</p>
+        <h3 class="salle-tete__nom">Le Korrigan</h3>
+        <p class="salle-tete__infos">209 places dont 6 PMR · classé Art &amp; Essai · 60 bénévoles</p>
+      </div>
+      <div class="salle-tete__meta">
+        <p><svg class="ic"><use href="#i-pin"></use></svg> 3 rue de la Vaunoise, 35850 Romillé</p>
+        
+        <p class="salle-tete__nb"><b>27</b> séances pendant le festival</p>
+      </div>
+      <div class="salle-tete__liens" data-liens="korrigan"></div>
+    </div>
+    <div class="jours">
+      <div class="jour" data-jour="mercredi-21">
+        <h4 class="jour__titre"><span>Mercredi</span><b>21 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Un amour d&#x27;épouvantail</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Ma famille de samouraïs</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Héros du Louvre</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="jeudi-22">
+        <h4 class="jour__titre"><span>Jeudi</span><b>22 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Cygne et l&#x27;enfant</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Corset</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="vendredi-23">
+        <h4 class="jour__titre"><span>Vendredi</span><b>23 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Chien bleu et autres belles histoires de l&#x27;école des loisirs</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Corset</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Spider-Man : Brand New Day</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Heart of the Beast</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="samedi-24">
+        <h4 class="jour__titre"><span>Samedi</span><b>24 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance seance--stage">
+            <span class="seance__h">9h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Stage mini-film</span>
+              <span class="tags"><span class="tag tag--renc">Atelier 8–11 ans · 2 €</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Tombé du ciel</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Fausse Note</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="dimanche-25">
+        <h4 class="jour__titre"><span>Dimanche</span><b>25 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Corset</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Justin, le juste</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="lundi-26">
+        <h4 class="jour__titre"><span>Lundi</span><b>26 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Monde à l&#x27;envers</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Robot sauvage</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">18h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Garance</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Roches rouges</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="mardi-27">
+        <h4 class="jour__titre"><span>Mardi</span><b>27 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Pat&#x27; Patrouille : Le film mission Dino</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">14h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ma famille de samouraïs</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">18h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Fausse Note</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panneau" id="panneau-celtic" role="tabpanel" aria-labelledby="onglet-celtic" tabindex="0" hidden>
+    <div class="salle-tete">
+      <div class="salle-tete__id">
+        <p class="salle-tete__ville">Saint-Méen-le-Grand</p>
+        <h3 class="salle-tete__nom">Le Celtic</h3>
+        <p class="salle-tete__infos">2 salles (240 et 68 places) · audio-description · Art &amp; Essai</p>
+      </div>
+      <div class="salle-tete__meta">
+        <p><svg class="ic"><use href="#i-pin"></use></svg> Rue Théodore Botrel, 35290 Saint-Méen-le-Grand</p>
+        <p><svg class="ic"><use href="#i-tel"></use></svg> <a href="tel:+33299094921">02 99 09 49 21</a></p>
+        <p class="salle-tete__nb"><b>52</b> séances pendant le festival</p>
+      </div>
+      <div class="salle-tete__liens" data-liens="celtic"></div>
+    </div>
+    <div class="jours">
+      <div class="jour" data-jour="mercredi-21">
+        <h4 class="jour__titre"><span>Mercredi</span><b>21 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance seance--stage">
+            <span class="seance__h">9h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Stage mini-film</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span><span class="tag tag--renc">Atelier 8–11 ans · 2 €</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">L&#x27;Île des souvenirs</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Pat&#x27; Patrouille : Le film mission Dino</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Spider-Man : Brand New Day</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="jeudi-22">
+        <h4 class="jour__titre"><span>Jeudi</span><b>22 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Mochy, le chien le plus moche du monde</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Monde à l&#x27;envers</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Robot sauvage</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span><span class="tag tag--cj">Ciné-Jeunes</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Corset</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Tombé du ciel</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Fausse Note</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="vendredi-23">
+        <h4 class="jour__titre"><span>Vendredi</span><b>23 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Mochy, le chien le plus moche du monde</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Un amour d&#x27;épouvantail</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Cars</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">L&#x27;Île des souvenirs</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Spider-Man : Brand New Day</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Corset</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">21h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">21h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="samedi-24">
+        <h4 class="jour__titre"><span>Samedi</span><b>24 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Pat&#x27; Patrouille : Le film mission Dino</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Monde à l&#x27;envers</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Mochy, le chien le plus moche du monde</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">L&#x27;Île des souvenirs</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Spider-Man : Brand New Day</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">21h00</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">21h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Digger</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="dimanche-25">
+        <h4 class="jour__titre"><span>Dimanche</span><b>25 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">L&#x27;Île des souvenirs</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Un amour d&#x27;épouvantail</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Cars</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Tombé du ciel</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Digger</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="lundi-26">
+        <h4 class="jour__titre"><span>Lundi</span><b>26 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Corset</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Le Monde à l&#x27;envers</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">L&#x27;Île des souvenirs</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Fausse Note</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Ducobu et le fantôme de Saint Potache</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Maison de nos rêves</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Digger</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="jour" data-jour="mardi-27">
+        <h4 class="jour__titre"><span>Mardi</span><b>27 oct.</b></h4>
+        <ul class="seances">
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">La Pat&#x27; Patrouille : Le film mission Dino</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">10h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Un amour d&#x27;épouvantail</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Mochy, le chien le plus moche du monde</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">15h00</span>
+            <span class="seance__d">
+              <span class="seance__t">Les Misérables</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">17h30</span>
+            <span class="seance__d">
+              <span class="seance__t">L&#x27;Île des souvenirs</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Fausse Note</span>
+              <span class="tags"><span class="tag tag--salle">Salle 1</span></span>
+            </span>
+          </li>
+          <li class="seance">
+            <span class="seance__h">20h30</span>
+            <span class="seance__d">
+              <span class="seance__t">Louve, une vie dans les Alpes</span>
+              <span class="tags"><span class="tag tag--salle">Salle 2</span><span class="tag tag--avp">Avant-première</span><span class="tag tag--renc">Rencontre</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="legende">
+    <span><b style="color:var(--or)">Sortie nationale</b> — le film sort le jour même partout en France</span>
+    <span><b style="color:var(--braise)">Avant-première</b> — avant la sortie officielle</span>
+    <span><b style="color:var(--mousse)">Ciné-Jeunes</b> — séance pensée pour le jeune public</span>
+    <span><b style="color:#9fc4ff">VOST</b> — version originale sous-titrée</span>
+  </div>
+</section>
+
+<!-- ====================== LES FILMS ====================== -->
+<section class="sec" id="films">
+  <div class="sec__tete reveal">
+    <h2>Les 39 films de la semaine</h2>
+    <p>De l'animation pour les tout-petits au grand film du soir, voici toute la sélection 2026.</p>
+  </div>
+  <div class="films">
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Camembert</span>
+            <img src="affiches/camembert.jpg" alt="Affiche du film Camembert" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Camembert</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Cars</span>
+            <img src="affiches/cars.jpg" alt="Affiche du film Cars" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Cars</span>
+            <span class="film__nb">2 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Chien bleu et autres belles histoires de l&#x27;école des loisirs</span>
+            <img src="affiches/chien-bleu-et-autres-belles-histoires-de-l-ecole-des-loisirs.jpg" alt="Affiche du film Chien bleu et autres belles histoires de l&#x27;école des loisirs" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Chien bleu et autres belles histoires de l&#x27;école des loisirs</span>
+            <span class="film__nb">4 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Digger</span>
+            <img src="affiches/digger.jpg" alt="Affiche du film Digger" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Digger</span>
+            <span class="film__nb">10 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Doraemon et le Château sous-marin</span>
+            <img src="affiches/doraemon-et-le-chateau-sous-marin.jpg" alt="Affiche du film Doraemon et le Château sous-marin" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Doraemon et le Château sous-marin</span>
+            <span class="film__nb">6 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Ducobu et le fantôme de Saint Potache</span>
+            <img src="affiches/ducobu-et-le-fantome-de-saint-potache.jpg" alt="Affiche du film Ducobu et le fantôme de Saint Potache" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Ducobu et le fantôme de Saint Potache</span>
+            <span class="film__nb">21 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Fausse Note</span>
+            <img src="affiches/fausse-note.jpg" alt="Affiche du film Fausse Note" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Fausse Note</span>
+            <span class="film__nb">7 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Garance</span>
+            <img src="affiches/garance.jpg" alt="Affiche du film Garance" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Garance</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Heart of the Beast</span>
+            <img src="affiches/heart-of-the-beast.jpg" alt="Affiche du film Heart of the Beast" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Heart of the Beast</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Hunger Games : La Révolte — Partie 1</span>
+            <img src="affiches/hunger-games-la-revolte-partie-1.jpg" alt="Affiche du film Hunger Games : La Révolte — Partie 1" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Hunger Games : La Révolte — Partie 1</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Joyeuse Jungle !</span>
+            <img src="affiches/joyeuse-jungle.jpg" alt="Affiche du film Joyeuse Jungle !" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Joyeuse Jungle !</span>
+            <span class="film__nb">5 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Justin, le juste</span>
+            <img src="affiches/justin-le-juste.jpg" alt="Affiche du film Justin, le juste" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Justin, le juste</span>
+            <span class="film__nb">4 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Karma</span>
+            <img src="affiches/karma.jpg" alt="Affiche du film Karma" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Karma</span>
+            <span class="film__nb">6 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Kerity, la maison des contes</span>
+            <img src="affiches/kerity-la-maison-des-contes.jpg" alt="Affiche du film Kerity, la maison des contes" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Kerity, la maison des contes</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">La Maison de nos rêves</span>
+            <img src="affiches/la-maison-de-nos-reves.jpg" alt="Affiche du film La Maison de nos rêves" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">La Maison de nos rêves</span>
+            <span class="film__nb">14 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">La Pat&#x27; Patrouille : Le film mission Dino</span>
+            <img src="affiches/la-pat-patrouille-le-film-mission-dino.jpg" alt="Affiche du film La Pat&#x27; Patrouille : Le film mission Dino" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">La Pat&#x27; Patrouille : Le film mission Dino</span>
+            <span class="film__nb">4 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">La Vie d&#x27;une femme</span>
+            <img src="affiches/la-vie-d-une-femme.jpg" alt="Affiche du film La Vie d&#x27;une femme" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">La Vie d&#x27;une femme</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Le Corset</span>
+            <img src="affiches/le-corset.jpg" alt="Affiche du film Le Corset" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Le Corset</span>
+            <span class="film__nb">9 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Le Cygne et l&#x27;enfant</span>
+            <img src="affiches/le-cygne-et-l-enfant.jpg" alt="Affiche du film Le Cygne et l&#x27;enfant" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Le Cygne et l&#x27;enfant</span>
+            <span class="film__nb">2 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Le Monde à l&#x27;envers</span>
+            <img src="affiches/le-monde-a-l-envers.jpg" alt="Affiche du film Le Monde à l&#x27;envers" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Le Monde à l&#x27;envers</span>
+            <span class="film__nb">7 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Le Robot sauvage</span>
+            <img src="affiches/le-robot-sauvage.jpg" alt="Affiche du film Le Robot sauvage" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Le Robot sauvage</span>
+            <span class="film__nb">3 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Les Éléphants dans la brume</span>
+            <img src="affiches/les-elephants-dans-la-brume.jpg" alt="Affiche du film Les Éléphants dans la brume" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Les Éléphants dans la brume</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Les Héros du Louvre</span>
+            <img src="affiches/les-heros-du-louvre.jpg" alt="Affiche du film Les Héros du Louvre" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Les Héros du Louvre</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Les Misérables</span>
+            <img src="affiches/les-miserables.jpg" alt="Affiche du film Les Misérables" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Les Misérables</span>
+            <span class="film__nb">17 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Les Roches rouges</span>
+            <img src="affiches/les-roches-rouges.jpg" alt="Affiche du film Les Roches rouges" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Les Roches rouges</span>
+            <span class="film__nb">2 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">L&#x27;Île des souvenirs</span>
+            <img src="affiches/l-ile-des-souvenirs.jpg" alt="Affiche du film L&#x27;Île des souvenirs" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">L&#x27;Île des souvenirs</span>
+            <span class="film__nb">6 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Louve, une vie dans les Alpes</span>
+            <img src="affiches/louve-une-vie-dans-les-alpes.jpg" alt="Affiche du film Louve, une vie dans les Alpes" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Louve, une vie dans les Alpes</span>
+            <span class="film__nb">4 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Ma famille de samouraïs</span>
+            <img src="affiches/ma-famille-de-samourais.jpg" alt="Affiche du film Ma famille de samouraïs" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Ma famille de samouraïs</span>
+            <span class="film__nb">2 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Même les souris vont au paradis</span>
+            <img src="affiches/meme-les-souris-vont-au-paradis.jpg" alt="Affiche du film Même les souris vont au paradis" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Même les souris vont au paradis</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Mochy, le chien le plus moche du monde</span>
+            <img src="affiches/mochy-le-chien-le-plus-moche-du-monde.jpg" alt="Affiche du film Mochy, le chien le plus moche du monde" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Mochy, le chien le plus moche du monde</span>
+            <span class="film__nb">10 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Moulin</span>
+            <img src="affiches/moulin.jpg" alt="Affiche du film Moulin" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Moulin</span>
+            <span class="film__nb">2 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Ni vue, ni connue</span>
+            <img src="affiches/ni-vue-ni-connue.jpg" alt="Affiche du film Ni vue, ni connue" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Ni vue, ni connue</span>
+            <span class="film__nb">4 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Notre salut</span>
+            <img src="affiches/notre-salut.jpg" alt="Affiche du film Notre salut" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Notre salut</span>
+            <span class="film__nb">2 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Nouveaux copains à Puffin Rock</span>
+            <img src="affiches/nouveaux-copains-a-puffin-rock.jpg" alt="Affiche du film Nouveaux copains à Puffin Rock" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Nouveaux copains à Puffin Rock</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            <img src="affiches/shaun-le-mouton-et-la-beeete-d-halloween.jpg" alt="Affiche du film Shaun le mouton et la bêêête d&#x27;Halloween" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Shaun le mouton et la bêêête d&#x27;Halloween</span>
+            <span class="film__nb">17 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Sherlock Junior</span>
+            <img src="affiches/sherlock-junior.jpg" alt="Affiche du film Sherlock Junior" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Sherlock Junior</span>
+            <span class="film__nb">1 séance</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Spider-Man : Brand New Day</span>
+            <img src="affiches/spider-man-brand-new-day.jpg" alt="Affiche du film Spider-Man : Brand New Day" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Spider-Man : Brand New Day</span>
+            <span class="film__nb">5 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--tout reveal">
+          <div class="film__aff">
+            <span class="film__txt">Tombé du ciel</span>
+            <img src="affiches/tombe-du-ciel.jpg" alt="Affiche du film Tombé du ciel" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Tombé du ciel</span>
+            <span class="film__nb">4 séances</span>
+          </figcaption>
+        </figure>
+        <figure class="film film--jeune reveal">
+          <div class="film__aff">
+            <span class="film__txt">Un amour d&#x27;épouvantail</span>
+            <img src="affiches/un-amour-d-epouvantail.jpg" alt="Affiche du film Un amour d&#x27;épouvantail" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+          <figcaption>
+            <span class="film__nom">Un amour d&#x27;épouvantail</span>
+            <span class="film__nb">6 séances</span>
+          </figcaption>
+        </figure>
+  </div>
+</section>
+
+<!-- ====================== ANIMATIONS ====================== -->
+<section class="sec" id="animations">
+  <div class="sec__tete reveal">
+    <h2>Les animations</h2>
+    <p>En plus des séances, chaque salle propose ses rendez-vous.</p>
+  </div>
+  <div class="anim">
+    <div class="bloc reveal">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-cam"></use></svg> Stage mini-film · 8 à 11 ans</h3>
+      <p>Trois heures trente pour écrire, tourner et monter un petit film, encadré par la compagnie Artefakt. Tarif 2 €, places limitées, inscription à l'accueil de votre cinéma.</p>
+      <ul><li><b>La Bobine</b><span>Bréal-sous-Montfort</span><em>Mardi 27 octobre · 9h00</em></li>
+<li><b>Ciné-Montal</b><span>Montauban-de-Bretagne</span><em>Vendredi 23 octobre · 9h00</em></li>
+<li><b>La Cane</b><span>Montfort-sur-Meu</span><em>Jeudi 22 octobre · 9h00</em></li>
+<li><b>L&#x27;Hermine</b><span>Plélan-le-Grand</span><em>Lundi 26 octobre · 9h00</em></li>
+<li><b>Le Korrigan</b><span>Romillé</span><em>Samedi 24 octobre · 9h00</em></li>
+<li><b>Le Celtic</b><span>Saint-Méen-le-Grand</span><em>Mercredi 21 octobre · 9h00</em></li></ul>
+    </div>
+    <div class="bloc reveal">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-star"></use></svg> Séances Ciné-Jeunes</h3>
+      <p>Une séance par salle, à 3 €, avec un film choisi pour les enfants.</p>
+      <ul><li><b>Kerity, la maison des contes</b><span>La Bobine · Bréal-sous-Montfort</span><em>Mercredi 21 octobre · 14h30</em></li>
+<li><b>Même les souris vont au paradis</b><span>Ciné-Montal · Montauban-de-Bretagne</span><em>Vendredi 23 octobre · 14h30</em></li>
+<li><b>Le Robot sauvage</b><span>La Cane · Montfort-sur-Meu</span><em>Mardi 27 octobre · 14h30</em></li>
+<li><b>Sherlock Junior</b><span>L&#x27;Hermine · Plélan-le-Grand</span><em>Samedi 24 octobre · 17h00</em></li>
+<li><b>Le Robot sauvage</b><span>Le Korrigan · Romillé</span><em>Lundi 26 octobre · 14h30</em></li>
+<li><b>Le Robot sauvage</b><span>Le Celtic · Saint-Méen-le-Grand</span><em>Jeudi 22 octobre · 15h00</em></li></ul>
+    </div>
+    <div class="bloc reveal">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-users"></use></svg> Avant-premières &amp; rencontres</h3>
+      <p>Plusieurs séances sont proposées avant la sortie nationale, certaines en présence d'une association ou d'un intervenant.</p>
+      <ul>
+        <li><b>Louve, une vie dans les Alpes</b><span>Ciné-Montal · Montauban-de-Bretagne</span><em>Jeudi 22 octobre · 20h30</em></li>
+        <li><b>Louve, une vie dans les Alpes</b><span>La Bobine · Bréal-sous-Montfort</span><em>Dimanche 25 octobre · 15h00</em></li>
+        <li><b>Louve, une vie dans les Alpes</b><span>La Cane · Montfort-sur-Meu</span><em>Lundi 26 octobre · 20h30</em></li>
+        <li><b>Louve, une vie dans les Alpes</b><span>Le Celtic · Saint-Méen-le-Grand</span><em>Mardi 27 octobre · 20h30</em></li>
+        <li><b>Camembert</b><span>L'Hermine · Plélan-le-Grand</span><em>Mercredi 21 octobre · 20h30</em></li>
+        <li><b>Moulin</b><span>La Cane · Montfort-sur-Meu</span><em>Dimanche 25 octobre · 20h30</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== TARIFS & PASS CULTURE ====================== -->
+<section class="sec" id="tarifs">
+  <div class="sec__tete reveal">
+    <h2>Tarifs &amp; Pass Culture</h2>
+    <p>Un prix unique dans les six salles, pendant toute la semaine du festival.</p>
+  </div>
+  <div class="tarifs">
+    <ul class="prix reveal">
+      <!-- ⚠️ TARIF FESTIVAL : à confirmer avant publication (4,50 € en 2025). -->
+      <li><b>Tarif unique festival<span>Toutes les séances, dans les six cinémas</span></b><em>4,50 €</em></li>
+      <li><b>Séances jeune public spéciales<span>Séances Ciné-Jeunes et Mon Petit Ciné</span></b><em>3,00 €</em></li>
+      <li><b>Stage mini-film<span>8 à 11 ans · 3h30 · sur inscription</span></b><em>2,00 €</em></li>
+      <li><b>Moyens de paiement<span>Espèces, chèques, Chèque Cinéma Universel et Cinéchèques</span></b><em>✓</em></li>
+    </ul>
+
+    <div class="pass reveal">
+      <a class="carte-pass" href="https://pass.culture.fr/" target="_blank" rel="noopener noreferrer" aria-label="Le Pass Culture est accepté (site officiel, nouvelle fenêtre)">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="8.5" fill="none" stroke="#fff" stroke-width="2.3"/>
+          <g stroke="#fff" stroke-width="2.3" stroke-linecap="round">
+            <path d="M20 2.6v5M20 32.4v5M2.6 20h5M32.4 20h5M7.7 7.7l3.5 3.5M28.8 28.8l3.5 3.5M32.3 7.7l-3.5 3.5M11.2 28.8l-3.5 3.5"/>
+          </g>
+        </svg>
+        <span class="carte-pass__m">pass<span>Culture</span></span>
+        <span class="carte-pass__p">ACCEPTÉ DANS NOS SALLES · 15–20 ANS</span>
+      </a>
+      <h3>Vous avez entre 15 et 20 ans&nbsp;?</h3>
+      <p>Votre crédit Pass Culture est utilisable pendant le festival. Réservez votre séance depuis l'application, puis présentez votre contremarque à la caisse du cinéma.</p>
+      <a class="bt bt--p bt--s" href="https://pass.culture.fr/" target="_blank" rel="noopener noreferrer">Découvrir le Pass Culture</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="pied">
+    <div>
+      <h4>La Bobine</h4>
+      <p>Bréal-sous-Montfort</p>
+      <p>30 rue de la Petite Motte</p>
+      <p>02 23 41 19 62</p>
+      <a href="https://www.cinelabobine35.fr/" target="_blank" rel="noopener noreferrer">Site du cinéma</a>
+    </div>
+    <div>
+      <h4>Ciné-Montal</h4>
+      <p>Montauban-de-Bretagne</p>
+      <p>28 rue du Perry</p>
+      <p>02 99 06 44 30</p>
+      <a href="https://cine-montal.jimdofree.com/" target="_blank" rel="noopener noreferrer">Site du cinéma</a>
+    </div>
+    <div>
+      <h4>La Cane</h4>
+      <p>Montfort-sur-Meu</p>
+      <p>13 boulevard Carnot</p>
+      <p>02 99 09 09 37</p>
+      
+    </div>
+    <div>
+      <h4>L&#x27;Hermine</h4>
+      <p>Plélan-le-Grand</p>
+      <p>Rue de l&#x27;Hermine</p>
+      <p>02 99 06 89 58</p>
+      
+    </div>
+    <div>
+      <h4>Le Korrigan</h4>
+      <p>Romillé</p>
+      <p>3 rue de la Vaunoise</p>
+      
+      <a href="https://www.cinekorrigan-romille.fr/" target="_blank" rel="noopener noreferrer">Site du cinéma</a>
+    </div>
+    <div>
+      <h4>Le Celtic</h4>
+      <p>Saint-Méen-le-Grand</p>
+      <p>Rue Théodore Botrel</p>
+      <p>02 99 09 49 21</p>
+      <a href="https://www.le-celtic.com/" target="_blank" rel="noopener noreferrer">Site du cinéma</a>
+    </div>
+  </div>
+  <div class="pied-bas">
+    <p>Festival Cinés-Pays · 18ᵉ édition · 21 → 27 octobre 2026 · Brocéliande, Ille-et-Vilaine</p>
+    <nav>
+      <a class="bt bt--v bt--s" href="https://www.allocine.fr/salle/cinema/departement-83121/" target="_blank" rel="noopener noreferrer">
+        <svg class="ic" aria-hidden="true"><use href="#i-film"></use></svg> Nos salles sur AlloCiné
+      </a>
+      <a class="bt bt--p bt--s" href="https://pass.culture.fr/" target="_blank" rel="noopener noreferrer">
+        <svg class="ic" aria-hidden="true"><use href="#i-ticket"></use></svg> Pass Culture
+      </a>
+    </nav>
+  </div>
+</footer>
+
+<button id="haut" aria-label="Revenir en haut"><svg class="ic" aria-hidden="true"><use href="#i-haut"></use></svg></button>
+
+<script>
+(function () {
+  'use strict';
+
+    // ===================================================================
+    //  RÉSEAUX SOCIAUX DES CINÉMAS — un seul endroit à modifier.
+    //  Laissez "" si le cinéma n'a pas de page : le bouton ne s'affiche pas.
+    // ===================================================================
+    var RESEAUX = {
+      bobine:   { facebook:"", instagram:"" },
+      montal:   { facebook:"", instagram:"https://www.instagram.com/cinemontal/" },
+      cane:     { facebook:"", instagram:"" },
+      hermine:  { facebook:"", instagram:"" },
+      korrigan: { facebook:"", instagram:"" },
+      celtic:   { facebook:"https://www.facebook.com/stmeenleceltic/",
+                  instagram:"https://www.instagram.com/stmeenleceltic/" }
+    };
+    var SITES = {
+      bobine: { site:"https://www.cinelabobine35.fr/", allocine:"", nom:"La Bobine" },
+      montal: { site:"https://cine-montal.jimdofree.com/", allocine:"https://www.allocine.fr/seance/salle_gen_csalle=P3072.html", nom:"Ciné-Montal" },
+      cane: { site:"", allocine:"", nom:"La Cane" },
+      hermine: { site:"", allocine:"https://www.allocine.fr/seance/salle_gen_csalle=W0425.html", nom:"L'Hermine" },
+      korrigan: { site:"https://www.cinekorrigan-romille.fr/", allocine:"https://www.allocine.fr/seance/salle_gen_csalle=P9860.html", nom:"Le Korrigan" },
+      celtic: { site:"https://www.le-celtic.com/", allocine:"https://www.allocine.fr/seance/salle_gen_csalle=P5913.html", nom:"Le Celtic" }
+    };
+
+  /* --------------------------------------------------- menu mobile */
+  var burger = document.getElementById('burger'), menu = document.getElementById('menu');
+  function fermer() {
+    menu.classList.remove('ouvert');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', function () {
+    var o = menu.classList.toggle('ouvert');
+    burger.setAttribute('aria-expanded', String(o));
+    document.body.style.overflow = o ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', fermer); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.classList.contains('ouvert')) { fermer(); burger.focus(); }
+  });
+
+  /* --------------------------------------------------- défilement */
+  var bandeau = document.getElementById('bandeau'), haut = document.getElementById('haut'), tic = false;
+  haut.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', function () {
+    if (tic) return;
+    tic = true;
+    window.requestAnimationFrame(function () {
+      var y = window.scrollY || window.pageYOffset;
+      bandeau.classList.toggle('colle', y > 50);
+      haut.classList.toggle('vu', y > 500);
+      tic = false;
+    });
+  }, { passive: true });
+
+  /* --------------------------------------------------- apparitions */
+  var aVoir = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('dedans'); io.unobserve(e.target); } });
+    }, { threshold: .1, rootMargin: '0px 0px -30px 0px' });
+    aVoir.forEach(function (el) { io.observe(el); });
+  } else {
+    aVoir.forEach(function (el) { el.classList.add('dedans'); });
+  }
+
+  /* --------------------------------------------------- liens des salles */
+  function lien(url, icone, texte) {
+    return '<a class="bt bt--v bt--s" href="' + url + '" target="_blank" rel="noopener noreferrer">' +
+           '<svg class="ic" aria-hidden="true"><use href="#' + icone + '"></use></svg> ' + texte + '</a>';
+  }
+  document.querySelectorAll('[data-liens]').forEach(function (zone) {
+    var id = zone.getAttribute('data-liens'), r = RESEAUX[id] || {}, s = SITES[id] || {}, out = '';
+    if (s.site) out += lien(s.site, 'i-web', 'Site du cinéma');
+    if (r.facebook) out += lien(r.facebook, 'i-fb', 'Facebook');
+    if (r.instagram) out += lien(r.instagram, 'i-ig', 'Instagram');
+    if (s.allocine) out += lien(s.allocine, 'i-film', 'AlloCiné');
+    out += '<a class="bt bt--p bt--s" href="https://pass.culture.fr/" target="_blank" rel="noopener noreferrer">' +
+           '<svg class="ic" aria-hidden="true"><use href="#i-ticket"></use></svg> Pass Culture</a>';
+    zone.innerHTML = out;
+  });
+
+  /* --------------------------------------------------- onglets cinémas */
+  var onglets = Array.prototype.slice.call(document.querySelectorAll('.onglet'));
+  var panneaux = Array.prototype.slice.call(document.querySelectorAll('.panneau'));
+
+  function ouvrir(id, bouger) {
+    onglets.forEach(function (o) {
+      var actif = o.getAttribute('data-cine') === id;
+      o.setAttribute('aria-selected', String(actif));
+      o.tabIndex = actif ? 0 : -1;
+    });
+    panneaux.forEach(function (p) { p.hidden = p.id !== 'panneau-' + id; });
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+    if (bouger) document.getElementById('programme').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  onglets.forEach(function (o, i) {
+    o.addEventListener('click', function () { ouvrir(o.getAttribute('data-cine'), false); });
+    o.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var n = onglets[(i + d + onglets.length) % onglets.length];
+      n.focus(); ouvrir(n.getAttribute('data-cine'), false);
+    });
+  });
+
+  document.querySelectorAll('[data-goto]').forEach(function (c) {
+    c.addEventListener('click', function () {
+      ouvrir(c.getAttribute('data-goto'), false);
+    });
+  });
+
+  var depart = (location.hash || '').replace('#', '');
+  ouvrir(onglets.some(function (o) { return o.getAttribute('data-cine') === depart; }) ? depart : onglets[0].getAttribute('data-cine'), false);
+
+  /* --------------------------------------------------- filtre par jour */
+  var boutonsJour = Array.prototype.slice.call(document.querySelectorAll('.fj'));
+  boutonsJour.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var j = b.getAttribute('data-jour');
+      boutonsJour.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      document.querySelectorAll('.jour').forEach(function (bloc) {
+        bloc.hidden = (j !== 'tous' && bloc.getAttribute('data-jour') !== j);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
