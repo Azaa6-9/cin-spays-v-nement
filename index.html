@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.acsta.net https://media.outnow.ch https://upload.wikimedia.org; connect-src 'self' https://en.wikipedia.org; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Cinés-Pays 2026 — 18ᵉ édition | Festival de 6 cinémas de Brocéliande</title>
 <meta name="description" content="18ᵉ festival Cinés-Pays, du 21 au 27 octobre 2026 : 195 séances, 39 films, 6 cinémas associatifs en Brocéliande (Bréal, Montauban, Montfort, Plélan, Romillé, Saint-Méen).">
 <meta name="theme-color" content="#f3ead7">
@@ -151,7 +153,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   background:var(--papier);transform:translateY(-50%)}
 .billet::before{left:-6px} .billet::after{right:-6px}
 .une h1{font-family:var(--tf);font-weight:800;letter-spacing:-2.5px;line-height:.86;margin-bottom:.55rem}
-.une h1 .l1{display:block;font-size:clamp(2.9rem,10.5vw,7.4rem);color:var(--rouge)}
+.une h1 .l1{display:block;font-size:clamp(2.6rem,9vw,6.9rem);color:var(--rouge);white-space:nowrap}
 .une h1 .l2{display:block;font-size:clamp(3.4rem,12vw,8.6rem);color:var(--or-clair)}
 @supports (-webkit-text-stroke:2px #000){
   .une h1 .l2{color:transparent;-webkit-text-stroke:2.5px var(--rouge-sombre)}
@@ -232,7 +234,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 /* la salle s'éteint : bandeau velours */
 #programme{
   background:linear-gradient(180deg,var(--velours-nuit),var(--velours) 12%,var(--velours) 88%,var(--velours-nuit));
-  color:#fbeede;margin:1rem 0;
+  color:#fbeede;margin:0 0 1rem;
 }
 #programme::before{
   content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
@@ -518,6 +520,58 @@ footer{background:var(--foret-nuit);color:#e7f0e8;padding:3rem 5% 2rem;position:
   .une__faisceau{animation:none}
 }
 
+
+/* ================================================== FONDS « SALLE DE CINÉMA » */
+:root{--drape:clamp(20px,6vw,96px)}
+.bandeau:not(.colle){padding-left:max(5%,calc(var(--drape) + 1rem));padding-right:max(5%,calc(var(--drape) + 1rem))}
+/* rideaux de velours de part et d'autre de l'accueil */
+.une{padding-left:max(5%,calc(var(--drape) + 1.2rem));padding-right:max(5%,calc(var(--drape) + 1.2rem))}
+.une__drape{position:absolute;top:0;bottom:0;width:var(--drape);z-index:3;pointer-events:none;transform-origin:50% 0;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.4),transparent 22%,transparent 72%,rgba(0,0,0,.5)),
+    repeating-linear-gradient(90deg,#4a0f0b 0,#8a2119 12px,#b3372a 19px,#8a2119 28px,#4a0f0b 38px);
+  animation:drape 7s ease-in-out infinite alternate}
+.une__drape--g{left:0;border-bottom-right-radius:100% 26%;box-shadow:10px 0 26px -8px rgba(40,8,4,.55)}
+.une__drape--d{right:0;border-bottom-left-radius:100% 26%;box-shadow:-10px 0 26px -8px rgba(40,8,4,.55);animation-delay:-3.5s}
+/* embrasse dorée */
+.une__drape::after{content:'';position:absolute;left:-10%;right:-10%;top:58%;height:14px;border-radius:7px;
+  background:linear-gradient(180deg,#f2b544,#b36d06);box-shadow:0 4px 8px rgba(0,0,0,.35)}
+@keyframes drape{to{transform:scaleX(1.07)}}
+/* rampe lumineuse au pied de la scène */
+.une::after{content:'';position:absolute;left:0;right:0;bottom:0;height:140px;pointer-events:none;z-index:0;
+  background:radial-gradient(60% 100% at 50% 100%,rgba(242,181,68,.28),transparent 70%)}
+
+/* projecteurs croisés sur les sections claires */
+#festival::before,#animations::before,#tarifs::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(520px 420px at 8% 0,rgba(242,181,68,.20),transparent 70%),
+    radial-gradient(520px 420px at 92% 0,rgba(179,42,30,.11),transparent 70%)}
+
+/* LES CINÉMAS : une vraie salle, rangées de fauteuils rouges en bas */
+#cinemas{color:#f6ead6;padding-bottom:10rem;
+  background:
+    radial-gradient(900px 340px at 50% -40px,rgba(255,232,180,.20),transparent 70%),
+    linear-gradient(180deg,#2c0e0a,#1a0806 70%,#120504)}
+#cinemas .sec__tete h2{color:#fff3e2}
+#cinemas .sec__tete p{color:rgba(255,240,224,.75)}
+#cinemas::after{content:'';position:absolute;left:0;right:0;bottom:0;height:150px;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 22px 34px at 50% 100%,#6d1710 96%,transparent 100%) 0 100%/54px 46px repeat-x,
+    radial-gradient(ellipse 18px 28px at 50% 100%,#521009 96%,transparent 100%) 27px calc(100% - 40px)/46px 40px repeat-x,
+    radial-gradient(ellipse 15px 23px at 50% 100%,#3d0b07 96%,transparent 100%) 0 calc(100% - 76px)/40px 32px repeat-x,
+    linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
+#cinemas .cines{position:relative;z-index:1}
+#cinemas .carte-cine{border-color:rgba(242,181,68,.35);box-shadow:0 0 0 1px rgba(242,181,68,.12),0 18px 34px -18px rgba(0,0,0,.9)}
+#cinemas .carte-cine:hover{box-shadow:0 0 0 2px var(--or-clair),0 26px 44px -20px rgba(0,0,0,.95)}
+
+@media (max-width:820px){
+  .une{padding-left:calc(var(--drape) + 1.1rem);padding-right:calc(var(--drape) + 1.1rem)}
+  .une__drape::after{height:10px}
+  #cinemas{padding-bottom:8rem}
+}
+@media (prefers-reduced-motion:reduce){ .une__drape{animation:none} }
+@media print{ .une__drape,.une::after,#cinemas::after{display:none!important} #cinemas{background:none;color:#000} }
+
 /* ================================================== THÈME CINÉMA */
 /* lever de rideau à l'ouverture de la page (une seule fois, sans JS) */
 .rideau{position:fixed;inset:0;z-index:2000;pointer-events:none;display:flex;animation:rideau-fin 0s 1.9s forwards}
@@ -651,53 +705,136 @@ body.fige{overflow:hidden}
      1. le fichier  affiches/<nom>.jpg  déposé dans le dépôt GitHub ;
      2. sinon l'adresse web collée ci-dessous (clic droit sur l'affiche
         dans AlloCiné > « Copier l'adresse de l'image ») ;
-     3. sinon l'affiche dessinée aux couleurs du festival.
+     3. sinon les affiches officielles trouvées automatiquement (plus bas) ;
+     4. sinon l'affiche dessinée aux couleurs du festival.
    ===================================================================== */
 var AFFICHES = {
   "camembert":                                                   "https://fr.web.img4.acsta.net/c_310_420/img/9e/4d/9e4d409d35a86e0489522cc571772d2e.jpg",
-  "cars":                                                        "",
-  "chien-bleu-et-autres-belles-histoires-de-l-ecole-des-loisirs":"",
-  "digger":                                                      "",
-  "doraemon-et-le-chateau-sous-marin":                           "",
+  "cars":                                                        "https://fr.web.img6.acsta.net/c_310_420/img/59/da/59da33b9de0e915a94ce75dcd407df2d.jpg",
+  "chien-bleu-et-autres-belles-histoires-de-l-ecole-des-loisirs":"https://fr.web.img5.acsta.net/c_310_420/img/99/a1/99a165c46cfdf1a5e80547d7317e854c.jpg",
+  "digger":                                                      "https://fr.web.img6.acsta.net/c_310_420/img/ca/46/ca467fa6a145bb9d8fda93417d4374cf.jpg",
+  "doraemon-et-le-chateau-sous-marin":                           "https://fr.web.img5.acsta.net/c_310_420/img/12/07/120736d4c8daa5a98e6d413e236ea509.jpg",
   "ducobu-et-le-fantome-de-saint-potache":                       "https://fr.web.img4.acsta.net/c_310_420/img/54/16/54167f9b523fff67b07b2e80f5f9dd71.jpg",
-  "fausse-note":                                                 "",
-  "garance":                                                     "",
-  "heart-of-the-beast":                                          "",
-  "hunger-games-la-revolte-partie-1":                            "",
-  "joyeuse-jungle":                                              "",
-  "justin-le-juste":                                             "",
-  "karma":                                                       "",
-  "kerity-la-maison-des-contes":                                 "",
-  "l-ile-des-souvenirs":                                         "",
-  "la-maison-de-nos-reves":                                      "",
+  "fausse-note":                                                 "https://fr.web.img6.acsta.net/c_310_420/img/a5/08/a5081c99da97f696eaf2a157422bac63.jpg",
+  "garance":                                                     "https://fr.web.img6.acsta.net/c_310_420/img/22/e4/22e455446c0461e270e5341d9f88f43f.jpg",
+  "heart-of-the-beast":                                          "https://fr.web.img6.acsta.net/c_310_420/img/6f/af/6faf7d9aa879bd9374e773f31db44956.jpg",
+  "hunger-games-la-revolte-partie-1":                            "https://fr.web.img6.acsta.net/c_310_420/img/59/5e/595e2c4249c13746be04d6f3f2b452e9.jpg",
+  "joyeuse-jungle":                                              "https://fr.web.img5.acsta.net/c_310_420/img/e8/6c/e86c9876fe8dc5abacfaacbd1bcd1cb3.jpg",
+  "justin-le-juste":                                             "https://fr.web.img4.acsta.net/c_310_420/img/a4/da/a4dac200a65518d1db35e7dba6ddd4e7.jpg",
+  "karma":                                                       "https://fr.web.img6.acsta.net/c_310_420/img/37/68/376899ecafee7d4b20b3e73f1944be34.jpg",
+  "kerity-la-maison-des-contes":                                 "https://fr.web.img4.acsta.net/c_310_420/medias/nmedia/18/71/06/24/19193657.jpg",
+  "l-ile-des-souvenirs":                                         "https://fr.web.img4.acsta.net/c_310_420/img/56/7e/567e74d867a1c88b20897c5d7f92d4dd.jpg",
+  "la-maison-de-nos-reves":                                      "https://fr.web.img6.acsta.net/c_310_420/img/7f/e6/7fe6fefcab6e4951dac81cebd7c5e202.jpg",
   "la-pat-patrouille-le-film-mission-dino":                      "https://fr.web.img5.acsta.net/c_310_420/img/bb/35/bb358019448f4fcd5c37b0d19c04fd0d.jpg",
-  "la-vie-d-une-femme":                                          "",
-  "le-corset":                                                   "",
-  "le-cygne-et-l-enfant":                                        "",
-  "le-monde-a-l-envers":                                         "",
-  "le-robot-sauvage":                                            "",
-  "les-elephants-dans-la-brume":                                 "",
-  "les-heros-du-louvre":                                         "",
-  "les-miserables":                                              "",
-  "les-roches-rouges":                                           "",
+  "la-vie-d-une-femme":                                          "https://fr.web.img4.acsta.net/c_310_420/img/46/d4/46d4170eaca90b7bd1dae27db18ed739.jpg",
+  "le-corset":                                                   "https://fr.web.img6.acsta.net/c_310_420/img/a7/96/a796a67caa5bdab1508d9207abaf5284.jpg",
+  "le-cygne-et-l-enfant":                                        "https://fr.web.img6.acsta.net/c_310_420/img/b9/dd/b9ddaa36d65452afbc94547d8202dc92.jpg",
+  "le-monde-a-l-envers":                                         "https://fr.web.img2.acsta.net/c_310_420/img/69/54/695460e78e996175a81de234a0603f87.jpg",
+  "le-robot-sauvage":                                            "https://fr.web.img3.acsta.net/c_310_420/img/7a/10/7a1098f21c765b7d4935240e1af094ed.jpg",
+  "les-elephants-dans-la-brume":                                 "https://fr.web.img6.acsta.net/c_310_420/img/00/94/00949f4ef8372d0da903da48aa36c1bf.jpg",
+  "les-heros-du-louvre":                                         "https://fr.web.img2.acsta.net/c_310_420/img/5b/2e/5b2e76c638253f412a5deea5a9d849e7.jpg",
+  "les-miserables":                                              "https://fr.web.img2.acsta.net/c_310_420/img/5a/41/5a4186d62d534f2da65c2e9e8e822a34.jpg",
+  "les-roches-rouges":                                           "https://fr.web.img4.acsta.net/c_310_420/img/98/2b/982b47b607f4719bc457f81b5ee8c510.jpg",
   "louve-une-vie-dans-les-alpes":                                "",
-  "ma-famille-de-samourais":                                     "",
-  "meme-les-souris-vont-au-paradis":                             "",
-  "mochy-le-chien-le-plus-moche-du-monde":                       "",
-  "moulin":                                                      "",
-  "ni-vue-ni-connue":                                            "",
-  "notre-salut":                                                 "",
-  "nouveaux-copains-a-puffin-rock":                              "",
-  "shaun-le-mouton-et-la-beeete-d-halloween":                    "",
-  "sherlock-junior":                                             "",
+  "ma-famille-de-samourais":                                     "https://fr.web.img3.acsta.net/c_310_420/img/5d/72/5d72af42143f7d2d3ef6b00ac8c23699.jpg",
+  "meme-les-souris-vont-au-paradis":                             "https://fr.web.img4.acsta.net/c_310_420/pictures/21/05/27/13/19/3250627.jpg",
+  "mochy-le-chien-le-plus-moche-du-monde":                       "https://fr.web.img2.acsta.net/c_310_420/img/2e/29/2e292d36aa0d7fc0efb2e1d08578357d.jpg",
+  "moulin":                                                      "https://fr.web.img6.acsta.net/c_310_420/img/ae/69/ae69b0a93292a62cbe17343c9625b5a9.jpg",
+  "ni-vue-ni-connue":                                            "https://fr.web.img5.acsta.net/c_310_420/img/04/d2/04d24a4f7815a30efe7dd1202384832f.jpg",
+  "notre-salut":                                                 "https://fr.web.img2.acsta.net/c_310_420/img/b7/ac/b7acc48dac20e8329866a199e0ff78e8.jpg",
+  "nouveaux-copains-a-puffin-rock":                              "https://fr.web.img3.acsta.net/c_310_420/img/08/20/082028a510ebcaa259712094f41f2f45.jpg",
+  "shaun-le-mouton-et-la-beeete-d-halloween":                    "https://fr.web.img4.acsta.net/c_310_420/img/4f/da/4fda4090f417ac9b0e78ccc48f43ea2c.jpg",
+  "sherlock-junior":                                             "https://fr.web.img4.acsta.net/c_310_420/pictures/23/08/23/14/52/2765778.jpg",
   "spider-man-brand-new-day":                                    "https://fr.web.img3.acsta.net/c_310_420/img/cd/90/cd90255ae37ff659dab73bd1c422c9b5.jpg",
-  "tombe-du-ciel":                                               "",
-  "un-amour-d-epouvantail":                                      ""
+  "tombe-du-ciel":                                               "https://fr.web.img3.acsta.net/c_310_420/img/78/a7/78a70db88122966584f6dd674da06a6d.jpg",
+  "un-amour-d-epouvantail":                                      "https://fr.web.img3.acsta.net/c_310_420/img/69/17/6917a9ac903b1fbbc9bfa78aca1d257c.png"
+};
+/* Sources automatiques supplémentaires (base OutNow, affiches officielles).
+   Chaque entrée « année/NomDuFilm » est essayée en .jpg puis en .png ;
+   si rien n'existe, l'affiche dessinée du festival reste affichée. */
+var AFFICHES_AUTO = {
+  "camembert":                                                    ["2026/Camembert"],
+  "cars":                                                         ["2006/Cars"],
+  "chien-bleu-et-autres-belles-histoires-de-l-ecole-des-loisirs": ["2026/ChienBleuEtAutresBellesHistoiresDeLEcoleDesLoisirs", "2026/ChienBleu"],
+  "digger":                                                       ["2026/Digger.jpg"],
+  "doraemon-et-le-chateau-sous-marin":                            ["2026/DoraemonEtLeChateauSous-Marin", "2026/Doraemon-NobitasUnderseaCastle", "2026/Doraemon"],
+  "ducobu-et-le-fantome-de-saint-potache":                        ["2026/DucobuEtLeFantomeDeSaintPotache"],
+  "fausse-note":                                                  ["2026/FausseNote"],
+  "garance":                                                      ["2026/Garance.jpg"],
+  "heart-of-the-beast":                                           ["2026/HeartOfTheBeast.jpg"],
+  "hunger-games-la-revolte-partie-1":                             ["2014/HungerGames-Mockingjay-Part1", "2014/HungerGames-MockingjayPart1"],
+  "joyeuse-jungle":                                               ["2026/JoyeuseJungle"],
+  "justin-le-juste":                                              ["2026/JustinLeJuste"],
+  "karma":                                                        ["2026/Karma.png"],
+  "kerity-la-maison-des-contes":                                  ["2009/Kerity", "2009/KerityLaMaisonDesContes"],
+  "l-ile-des-souvenirs":                                          ["2026/ForgottenIsland.png"],
+  "la-maison-de-nos-reves":                                       ["2026/MaisonDeNosReves"],
+  "la-pat-patrouille-le-film-mission-dino":                       ["2026/PAWPatrol-TheDinoMovie"],
+  "la-vie-d-une-femme":                                           ["2026/VieDuneFemme"],
+  "le-corset":                                                    ["2026/Corset"],
+  "le-cygne-et-l-enfant":                                         ["2026/CygneEtLEnfant"],
+  "le-monde-a-l-envers":                                          ["2026/MondeALEnvers"],
+  "le-robot-sauvage":                                             ["2024/WildRobot"],
+  "les-elephants-dans-la-brume":                                  ["2026/ElephantsDansLaBrume"],
+  "les-heros-du-louvre":                                          ["2026/HerosDuLouvre"],
+  "les-miserables":                                               ["2026/Miserables.png"],
+  "les-roches-rouges":                                            ["2026/RochesRouges"],
+  "louve-une-vie-dans-les-alpes":                                 ["2026/Louve-UneVieDansLesAlpes", "2026/Louve"],
+  "ma-famille-de-samourais":                                      ["2026/MaFamilleDeSamourais"],
+  "meme-les-souris-vont-au-paradis":                              ["2021/MemeLesSourisVontAuParadis"],
+  "mochy-le-chien-le-plus-moche-du-monde":                        ["2026/Yugly"],
+  "moulin":                                                       ["2026/Moulin"],
+  "ni-vue-ni-connue":                                             ["2026/NiVueNiConnue"],
+  "notre-salut":                                                  ["2026/NotreSalut"],
+  "nouveaux-copains-a-puffin-rock":                               ["2026/NouveauxCopainsAPuffinRock"],
+  "shaun-le-mouton-et-la-beeete-d-halloween":                     ["2026/ShaunTheSheep-TheBeastOfMossyBottom.jpg"],
+  "sherlock-junior":                                              ["1924/SherlockJr"],
+  "spider-man-brand-new-day":                                     ["2026/Spider-Man-BrandNewDay"],
+  "tombe-du-ciel":                                                ["2026/TombeDuCiel"],
+  "un-amour-d-epouvantail":                                       ["2026/UnAmourDEpouvantail"]
+};
+function listeAffiches(slug){
+  var l = [], a = AFFICHES[slug];
+  if (a) l.push(a);
+  (AFFICHES_AUTO[slug] || []).forEach(function (c) {
+    var base = 'https://media.outnow.ch/Movies/Bilder/', m = c.match(/\.(jpg|png)$/);
+    if (m) l.push(base + c.replace(/\.(jpg|png)$/, '') + '/artwork_small.' + m[1]);
+    else { l.push(base + c + '/artwork_small.jpg'); l.push(base + c + '/artwork_small.png'); }
+  });
+  return l;
+}
+/* Films plus anciens : l'affiche officielle est lue sur Wikipédia (anglais). */
+var AFFICHES_WIKI = {
+  "cars":                                   "Cars_(film)",
+  "hunger-games-la-revolte-partie-1":       "The_Hunger_Games:_Mockingjay_–_Part_1",
+  "le-robot-sauvage":                       "The_Wild_Robot",
+  "sherlock-junior":                        "Sherlock_Jr.",
+  "kerity-la-maison-des-contes":            "Eleanor's_Secret",
+  "meme-les-souris-vont-au-paradis":        "Even_Mice_Belong_in_Heaven"
 };
 function afficheSecours(img){
-  var url = AFFICHES[img.getAttribute('data-affiche')];
-  if (url && !img.hasAttribute('data-essai')) { img.setAttribute('data-essai',''); img.src = url; }
-  else { img.remove(); }
+  var slug = img.getAttribute('data-affiche'), n = parseInt(img.getAttribute('data-essai') || '0', 10), l = listeAffiches(slug);
+  if (AFFICHES_WIKI[slug]) l.splice(AFFICHES[slug] ? 1 : 0, 0, 'wiki:' + AFFICHES_WIKI[slug]);
+  if (n >= l.length) { img.remove(); return; }
+  img.setAttribute('data-essai', String(n + 1));
+  var c = l[n];
+  if (c.indexOf('wiki:') === 0) {
+    if (!window.fetch) { afficheSecours(img); return; }
+    fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(c.slice(5)))
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        var u = d && ((d.thumbnail && d.thumbnail.source) || (d.originalimage && d.originalimage.source));
+        if (!document.contains(img)) return;
+        if (u) img.src = u; else afficheSecours(img);
+      })
+      .catch(function () { if (document.contains(img)) afficheSecours(img); });
+  } else {
+    img.src = c;
+  }
+}
+/* image reçue mais inutilisable (vignette vide, format paysage) : on passe à la suivante */
+function afficheOk(img){
+  if (img.naturalWidth < 60 || img.naturalWidth > img.naturalHeight * 1.05) afficheSecours(img);
 }
 </script>
 </head>
@@ -753,6 +890,8 @@ function afficheSecours(img){
 <section class="une" id="accueil">
   <div class="une__faisceau" aria-hidden="true"></div>
   <canvas class="une__poussiere" aria-hidden="true"></canvas>
+  <div class="une__drape une__drape--g" aria-hidden="true"></div>
+  <div class="une__drape une__drape--d" aria-hidden="true"></div>
   <div class="une__in">
     <div class="une__txt">
       <p class="billet"><svg class="ic ic--p" aria-hidden="true"><use href="#i-star"></use></svg> 18ᵉ édition du festival</p>
@@ -771,9 +910,9 @@ function afficheSecours(img){
       </div>
     </div>
     <div class="pile" aria-hidden="true">
-      <div class="pile__a"><div class="affiche" data-pal="1" style="--fs:1.56rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Les Misérables</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/les-miserables.jpg" data-affiche="les-miserables" alt="Affiche du film Les Misérables" loading="lazy" decoding="async" onerror="afficheSecours(this)"></div>
-      <div class="pile__a"><div class="affiche" data-pal="4" style="--fs:1.04rem" aria-hidden="true"><span class="affiche__init">D</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Ducobu et le fantôme de Saint Potache</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/ducobu-et-le-fantome-de-saint-potache.jpg" data-affiche="ducobu-et-le-fantome-de-saint-potache" alt="Affiche du film Ducobu et le fantôme de Saint Potache" loading="lazy" decoding="async" onerror="afficheSecours(this)"></div>
-      <div class="pile__a"><div class="affiche" data-pal="6" style="--fs:1.04rem" aria-hidden="true"><span class="affiche__init">S</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Shaun le mouton et la bêêête d’Halloween</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/shaun-le-mouton-et-la-beeete-d-halloween.jpg" data-affiche="shaun-le-mouton-et-la-beeete-d-halloween" alt="Affiche du film Shaun le mouton et la bêêête d’Halloween" loading="lazy" decoding="async" onerror="afficheSecours(this)"></div>
+      <div class="pile__a"><div class="affiche" data-pal="1" style="--fs:1.56rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Les Misérables</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/les-miserables.jpg" data-affiche="les-miserables" alt="Affiche du film Les Misérables" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)"></div>
+      <div class="pile__a"><div class="affiche" data-pal="4" style="--fs:1.04rem" aria-hidden="true"><span class="affiche__init">D</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Ducobu et le fantôme de Saint Potache</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/ducobu-et-le-fantome-de-saint-potache.jpg" data-affiche="ducobu-et-le-fantome-de-saint-potache" alt="Affiche du film Ducobu et le fantôme de Saint Potache" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)"></div>
+      <div class="pile__a"><div class="affiche" data-pal="6" style="--fs:1.04rem" aria-hidden="true"><span class="affiche__init">S</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Shaun le mouton et la bêêête d’Halloween</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/shaun-le-mouton-et-la-beeete-d-halloween.jpg" data-affiche="shaun-le-mouton-et-la-beeete-d-halloween" alt="Affiche du film Shaun le mouton et la bêêête d’Halloween" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)"></div>
     </div>
   </div>
   <div class="pellicule reveal">
@@ -2552,7 +2691,7 @@ function afficheSecours(img){
   <div class="films">
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="3" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">C</span><span class="affiche__t">Camembert</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/camembert.jpg" data-affiche="camembert" alt="Affiche du film Camembert" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="3" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">C</span><span class="affiche__t">Camembert</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/camembert.jpg" data-affiche="camembert" alt="Affiche du film Camembert" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Camembert</span>
@@ -2561,7 +2700,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="2" style="--fs:1.45rem" aria-hidden="true"><span class="affiche__init">C</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Cars</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/cars.jpg" data-affiche="cars" alt="Affiche du film Cars" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="2" style="--fs:1.45rem" aria-hidden="true"><span class="affiche__init">C</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Cars</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/cars.jpg" data-affiche="cars" alt="Affiche du film Cars" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Cars</span>
@@ -2570,7 +2709,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="4" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">C</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Chien bleu et autres belles histoires de l’école des loisirs</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/chien-bleu-et-autres-belles-histoires-de-l-ecole-des-loisirs.jpg" data-affiche="chien-bleu-et-autres-belles-histoires-de-l-ecole-des-loisirs" alt="Affiche du film Chien bleu et autres belles histoires de l’école des loisirs" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="4" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">C</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Chien bleu et autres belles histoires de l’école des loisirs</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/chien-bleu-et-autres-belles-histoires-de-l-ecole-des-loisirs.jpg" data-affiche="chien-bleu-et-autres-belles-histoires-de-l-ecole-des-loisirs" alt="Affiche du film Chien bleu et autres belles histoires de l’école des loisirs" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Chien bleu et autres belles histoires de l’école des loisirs</span>
@@ -2579,7 +2718,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="5" style="--fs:1.45rem" aria-hidden="true"><span class="affiche__init">D</span><span class="affiche__t">Digger</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/digger.jpg" data-affiche="digger" alt="Affiche du film Digger" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="5" style="--fs:1.45rem" aria-hidden="true"><span class="affiche__init">D</span><span class="affiche__t">Digger</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/digger.jpg" data-affiche="digger" alt="Affiche du film Digger" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Digger</span>
@@ -2588,7 +2727,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="6" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">D</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Doraemon et le Château sous-marin</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/doraemon-et-le-chateau-sous-marin.jpg" data-affiche="doraemon-et-le-chateau-sous-marin" alt="Affiche du film Doraemon et le Château sous-marin" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="6" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">D</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Doraemon et le Château sous-marin</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/doraemon-et-le-chateau-sous-marin.jpg" data-affiche="doraemon-et-le-chateau-sous-marin" alt="Affiche du film Doraemon et le Château sous-marin" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Doraemon et le Château sous-marin</span>
@@ -2597,7 +2736,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="2" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">D</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Ducobu et le fantôme de Saint Potache</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/ducobu-et-le-fantome-de-saint-potache.jpg" data-affiche="ducobu-et-le-fantome-de-saint-potache" alt="Affiche du film Ducobu et le fantôme de Saint Potache" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="2" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">D</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Ducobu et le fantôme de Saint Potache</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/ducobu-et-le-fantome-de-saint-potache.jpg" data-affiche="ducobu-et-le-fantome-de-saint-potache" alt="Affiche du film Ducobu et le fantôme de Saint Potache" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Ducobu et le fantôme de Saint Potache</span>
@@ -2606,7 +2745,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="1" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">F</span><span class="affiche__t">Fausse Note</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/fausse-note.jpg" data-affiche="fausse-note" alt="Affiche du film Fausse Note" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="1" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">F</span><span class="affiche__t">Fausse Note</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/fausse-note.jpg" data-affiche="fausse-note" alt="Affiche du film Fausse Note" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Fausse Note</span>
@@ -2615,7 +2754,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="3" style="--fs:1.45rem" aria-hidden="true"><span class="affiche__init">G</span><span class="affiche__t">Garance</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/garance.jpg" data-affiche="garance" alt="Affiche du film Garance" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="3" style="--fs:1.45rem" aria-hidden="true"><span class="affiche__init">G</span><span class="affiche__t">Garance</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/garance.jpg" data-affiche="garance" alt="Affiche du film Garance" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Garance</span>
@@ -2624,7 +2763,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="5" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">H</span><span class="affiche__t">Heart of the Beast</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/heart-of-the-beast.jpg" data-affiche="heart-of-the-beast" alt="Affiche du film Heart of the Beast" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="5" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">H</span><span class="affiche__t">Heart of the Beast</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/heart-of-the-beast.jpg" data-affiche="heart-of-the-beast" alt="Affiche du film Heart of the Beast" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Heart of the Beast</span>
@@ -2633,7 +2772,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="1" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">H</span><span class="affiche__t">Hunger Games&nbsp;: La Révolte — Partie 1</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/hunger-games-la-revolte-partie-1.jpg" data-affiche="hunger-games-la-revolte-partie-1" alt="Affiche du film Hunger Games : La Révolte — Partie 1" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="1" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">H</span><span class="affiche__t">Hunger Games&nbsp;: La Révolte — Partie 1</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/hunger-games-la-revolte-partie-1.jpg" data-affiche="hunger-games-la-revolte-partie-1" alt="Affiche du film Hunger Games : La Révolte — Partie 1" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Hunger Games&nbsp;: La Révolte — Partie 1</span>
@@ -2642,7 +2781,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="4" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">J</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Joyeuse Jungle&nbsp;!</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/joyeuse-jungle.jpg" data-affiche="joyeuse-jungle" alt="Affiche du film Joyeuse Jungle !" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="4" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">J</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Joyeuse Jungle&nbsp;!</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/joyeuse-jungle.jpg" data-affiche="joyeuse-jungle" alt="Affiche du film Joyeuse Jungle !" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Joyeuse Jungle&nbsp;!</span>
@@ -2651,7 +2790,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="3" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">J</span><span class="affiche__t">Justin, le juste</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/justin-le-juste.jpg" data-affiche="justin-le-juste" alt="Affiche du film Justin, le juste" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="3" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">J</span><span class="affiche__t">Justin, le juste</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/justin-le-juste.jpg" data-affiche="justin-le-juste" alt="Affiche du film Justin, le juste" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Justin, le juste</span>
@@ -2660,7 +2799,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="5" style="--fs:1.45rem" aria-hidden="true"><span class="affiche__init">K</span><span class="affiche__t">Karma</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/karma.jpg" data-affiche="karma" alt="Affiche du film Karma" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="5" style="--fs:1.45rem" aria-hidden="true"><span class="affiche__init">K</span><span class="affiche__t">Karma</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/karma.jpg" data-affiche="karma" alt="Affiche du film Karma" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Karma</span>
@@ -2669,7 +2808,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="6" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">K</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Kerity, la maison des contes</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/kerity-la-maison-des-contes.jpg" data-affiche="kerity-la-maison-des-contes" alt="Affiche du film Kerity, la maison des contes" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="6" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">K</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Kerity, la maison des contes</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/kerity-la-maison-des-contes.jpg" data-affiche="kerity-la-maison-des-contes" alt="Affiche du film Kerity, la maison des contes" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Kerity, la maison des contes</span>
@@ -2678,7 +2817,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="1" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">La Maison de nos rêves</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/la-maison-de-nos-reves.jpg" data-affiche="la-maison-de-nos-reves" alt="Affiche du film La Maison de nos rêves" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="1" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">La Maison de nos rêves</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/la-maison-de-nos-reves.jpg" data-affiche="la-maison-de-nos-reves" alt="Affiche du film La Maison de nos rêves" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">La Maison de nos rêves</span>
@@ -2687,7 +2826,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="2" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">La Pat’ Patrouille&nbsp;: Le film mission Dino</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/la-pat-patrouille-le-film-mission-dino.jpg" data-affiche="la-pat-patrouille-le-film-mission-dino" alt="Affiche du film La Pat’ Patrouille : Le film mission Dino" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="2" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">La Pat’ Patrouille&nbsp;: Le film mission Dino</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/la-pat-patrouille-le-film-mission-dino.jpg" data-affiche="la-pat-patrouille-le-film-mission-dino" alt="Affiche du film La Pat’ Patrouille : Le film mission Dino" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">La Pat’ Patrouille&nbsp;: Le film mission Dino</span>
@@ -2696,7 +2835,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="3" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">La Vie d’une femme</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/la-vie-d-une-femme.jpg" data-affiche="la-vie-d-une-femme" alt="Affiche du film La Vie d’une femme" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="3" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">La Vie d’une femme</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/la-vie-d-une-femme.jpg" data-affiche="la-vie-d-une-femme" alt="Affiche du film La Vie d’une femme" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">La Vie d’une femme</span>
@@ -2705,7 +2844,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="5" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Le Corset</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/le-corset.jpg" data-affiche="le-corset" alt="Affiche du film Le Corset" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="5" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Le Corset</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/le-corset.jpg" data-affiche="le-corset" alt="Affiche du film Le Corset" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Le Corset</span>
@@ -2714,7 +2853,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="4" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Le Cygne et l’enfant</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/le-cygne-et-l-enfant.jpg" data-affiche="le-cygne-et-l-enfant" alt="Affiche du film Le Cygne et l’enfant" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="4" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Le Cygne et l’enfant</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/le-cygne-et-l-enfant.jpg" data-affiche="le-cygne-et-l-enfant" alt="Affiche du film Le Cygne et l’enfant" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Le Cygne et l’enfant</span>
@@ -2723,7 +2862,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="6" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Le Monde à l’envers</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/le-monde-a-l-envers.jpg" data-affiche="le-monde-a-l-envers" alt="Affiche du film Le Monde à l’envers" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="6" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Le Monde à l’envers</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/le-monde-a-l-envers.jpg" data-affiche="le-monde-a-l-envers" alt="Affiche du film Le Monde à l’envers" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Le Monde à l’envers</span>
@@ -2732,7 +2871,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="2" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Le Robot sauvage</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/le-robot-sauvage.jpg" data-affiche="le-robot-sauvage" alt="Affiche du film Le Robot sauvage" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="2" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Le Robot sauvage</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/le-robot-sauvage.jpg" data-affiche="le-robot-sauvage" alt="Affiche du film Le Robot sauvage" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Le Robot sauvage</span>
@@ -2741,7 +2880,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="4" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Les Éléphants dans la brume</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/les-elephants-dans-la-brume.jpg" data-affiche="les-elephants-dans-la-brume" alt="Affiche du film Les Éléphants dans la brume" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="4" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Les Éléphants dans la brume</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/les-elephants-dans-la-brume.jpg" data-affiche="les-elephants-dans-la-brume" alt="Affiche du film Les Éléphants dans la brume" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Les Éléphants dans la brume</span>
@@ -2750,7 +2889,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="1" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Les Héros du Louvre</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/les-heros-du-louvre.jpg" data-affiche="les-heros-du-louvre" alt="Affiche du film Les Héros du Louvre" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="1" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Les Héros du Louvre</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/les-heros-du-louvre.jpg" data-affiche="les-heros-du-louvre" alt="Affiche du film Les Héros du Louvre" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Les Héros du Louvre</span>
@@ -2759,7 +2898,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="3" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Les Misérables</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/les-miserables.jpg" data-affiche="les-miserables" alt="Affiche du film Les Misérables" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="3" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Les Misérables</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/les-miserables.jpg" data-affiche="les-miserables" alt="Affiche du film Les Misérables" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Les Misérables</span>
@@ -2768,7 +2907,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="5" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Les Roches rouges</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/les-roches-rouges.jpg" data-affiche="les-roches-rouges" alt="Affiche du film Les Roches rouges" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="5" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Les Roches rouges</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/les-roches-rouges.jpg" data-affiche="les-roches-rouges" alt="Affiche du film Les Roches rouges" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Les Roches rouges</span>
@@ -2777,7 +2916,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="6" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">L’Île des souvenirs</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/l-ile-des-souvenirs.jpg" data-affiche="l-ile-des-souvenirs" alt="Affiche du film L’Île des souvenirs" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="6" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">L’Île des souvenirs</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/l-ile-des-souvenirs.jpg" data-affiche="l-ile-des-souvenirs" alt="Affiche du film L’Île des souvenirs" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">L’Île des souvenirs</span>
@@ -2786,7 +2925,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="1" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Louve, une vie dans les Alpes</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/louve-une-vie-dans-les-alpes.jpg" data-affiche="louve-une-vie-dans-les-alpes" alt="Affiche du film Louve, une vie dans les Alpes" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="1" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">L</span><span class="affiche__t">Louve, une vie dans les Alpes</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/louve-une-vie-dans-les-alpes.jpg" data-affiche="louve-une-vie-dans-les-alpes" alt="Affiche du film Louve, une vie dans les Alpes" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Louve, une vie dans les Alpes</span>
@@ -2795,7 +2934,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="2" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">M</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Ma famille de samouraïs</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/ma-famille-de-samourais.jpg" data-affiche="ma-famille-de-samourais" alt="Affiche du film Ma famille de samouraïs" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="2" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">M</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Ma famille de samouraïs</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/ma-famille-de-samourais.jpg" data-affiche="ma-famille-de-samourais" alt="Affiche du film Ma famille de samouraïs" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Ma famille de samouraïs</span>
@@ -2804,7 +2943,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="4" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">M</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Même les souris vont au paradis</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/meme-les-souris-vont-au-paradis.jpg" data-affiche="meme-les-souris-vont-au-paradis" alt="Affiche du film Même les souris vont au paradis" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="4" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">M</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Même les souris vont au paradis</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/meme-les-souris-vont-au-paradis.jpg" data-affiche="meme-les-souris-vont-au-paradis" alt="Affiche du film Même les souris vont au paradis" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Même les souris vont au paradis</span>
@@ -2813,7 +2952,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="6" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">M</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Mochy, le chien le plus moche du monde</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/mochy-le-chien-le-plus-moche-du-monde.jpg" data-affiche="mochy-le-chien-le-plus-moche-du-monde" alt="Affiche du film Mochy, le chien le plus moche du monde" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="6" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">M</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Mochy, le chien le plus moche du monde</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/mochy-le-chien-le-plus-moche-du-monde.jpg" data-affiche="mochy-le-chien-le-plus-moche-du-monde" alt="Affiche du film Mochy, le chien le plus moche du monde" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Mochy, le chien le plus moche du monde</span>
@@ -2822,7 +2961,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="3" style="--fs:1.45rem" aria-hidden="true"><span class="affiche__init">M</span><span class="affiche__t">Moulin</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/moulin.jpg" data-affiche="moulin" alt="Affiche du film Moulin" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="3" style="--fs:1.45rem" aria-hidden="true"><span class="affiche__init">M</span><span class="affiche__t">Moulin</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/moulin.jpg" data-affiche="moulin" alt="Affiche du film Moulin" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Moulin</span>
@@ -2831,7 +2970,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="5" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">N</span><span class="affiche__t">Ni vue, ni connue</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/ni-vue-ni-connue.jpg" data-affiche="ni-vue-ni-connue" alt="Affiche du film Ni vue, ni connue" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="5" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">N</span><span class="affiche__t">Ni vue, ni connue</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/ni-vue-ni-connue.jpg" data-affiche="ni-vue-ni-connue" alt="Affiche du film Ni vue, ni connue" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Ni vue, ni connue</span>
@@ -2840,7 +2979,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="1" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">N</span><span class="affiche__t">Notre salut</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/notre-salut.jpg" data-affiche="notre-salut" alt="Affiche du film Notre salut" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="1" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">N</span><span class="affiche__t">Notre salut</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/notre-salut.jpg" data-affiche="notre-salut" alt="Affiche du film Notre salut" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Notre salut</span>
@@ -2849,7 +2988,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="2" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">N</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Nouveaux copains à Puffin Rock</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/nouveaux-copains-a-puffin-rock.jpg" data-affiche="nouveaux-copains-a-puffin-rock" alt="Affiche du film Nouveaux copains à Puffin Rock" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="2" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">N</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Nouveaux copains à Puffin Rock</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/nouveaux-copains-a-puffin-rock.jpg" data-affiche="nouveaux-copains-a-puffin-rock" alt="Affiche du film Nouveaux copains à Puffin Rock" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Nouveaux copains à Puffin Rock</span>
@@ -2858,7 +2997,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="4" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">S</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Shaun le mouton et la bêêête d’Halloween</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/shaun-le-mouton-et-la-beeete-d-halloween.jpg" data-affiche="shaun-le-mouton-et-la-beeete-d-halloween" alt="Affiche du film Shaun le mouton et la bêêête d’Halloween" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="4" style="--fs:0.80rem" aria-hidden="true"><span class="affiche__init">S</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Shaun le mouton et la bêêête d’Halloween</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/shaun-le-mouton-et-la-beeete-d-halloween.jpg" data-affiche="shaun-le-mouton-et-la-beeete-d-halloween" alt="Affiche du film Shaun le mouton et la bêêête d’Halloween" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Shaun le mouton et la bêêête d’Halloween</span>
@@ -2867,7 +3006,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="3" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">S</span><span class="affiche__t">Sherlock Junior</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/sherlock-junior.jpg" data-affiche="sherlock-junior" alt="Affiche du film Sherlock Junior" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="3" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">S</span><span class="affiche__t">Sherlock Junior</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/sherlock-junior.jpg" data-affiche="sherlock-junior" alt="Affiche du film Sherlock Junior" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Sherlock Junior</span>
@@ -2876,7 +3015,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="5" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">S</span><span class="affiche__t">Spider-Man&nbsp;: Brand New Day</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/spider-man-brand-new-day.jpg" data-affiche="spider-man-brand-new-day" alt="Affiche du film Spider-Man : Brand New Day" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="5" style="--fs:0.90rem" aria-hidden="true"><span class="affiche__init">S</span><span class="affiche__t">Spider-Man&nbsp;: Brand New Day</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/spider-man-brand-new-day.jpg" data-affiche="spider-man-brand-new-day" alt="Affiche du film Spider-Man : Brand New Day" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Spider-Man&nbsp;: Brand New Day</span>
@@ -2885,7 +3024,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="1" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">T</span><span class="affiche__t">Tombé du ciel</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/tombe-du-ciel.jpg" data-affiche="tombe-du-ciel" alt="Affiche du film Tombé du ciel" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="1" style="--fs:1.20rem" aria-hidden="true"><span class="affiche__init">T</span><span class="affiche__t">Tombé du ciel</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/tombe-du-ciel.jpg" data-affiche="tombe-du-ciel" alt="Affiche du film Tombé du ciel" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Tombé du ciel</span>
@@ -2894,7 +3033,7 @@ function afficheSecours(img){
     </figure>
     <figure class="film reveal">
       <div class="film__aff">
-        <div class="affiche" data-pal="6" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">U</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Un amour d’épouvantail</span><span class="affiche__p">Cinés-Pays 2026</span></div><img src="affiches/un-amour-d-epouvantail.jpg" data-affiche="un-amour-d-epouvantail" alt="Affiche du film Un amour d’épouvantail" loading="lazy" decoding="async" onerror="afficheSecours(this)">
+        <div class="affiche" data-pal="6" style="--fs:1.02rem" aria-hidden="true"><span class="affiche__init">U</span><span class="affiche__chip">Jeune public</span><span class="affiche__t">Un amour d’épouvantail</span><span class="affiche__p">Cinés-Pays 2026</span></div><img referrerpolicy="no-referrer" decoding="async" src="affiches/un-amour-d-epouvantail.jpg" data-affiche="un-amour-d-epouvantail" alt="Affiche du film Un amour d’épouvantail" loading="lazy" decoding="async" onload="afficheOk(this)" onerror="afficheSecours(this)">
       </div>
       <figcaption>
         <span class="film__nom">Un amour d’épouvantail</span>
@@ -3211,6 +3350,7 @@ function afficheSecours(img){
 
   /* --------------------------------------------------- liens des salles */
   function lien(url, icone, texte) {
+    if (!/^https:\/\/[^\s"'<>]+$/.test(url)) return '';          // n'accepte que des liens https propres
     return '<a class="bt bt--v bt--s" href="' + url + '" target="_blank" rel="noopener noreferrer">' +
            '<svg class="ic" aria-hidden="true"><use href="#' + icone + '"></use></svg> ' + texte + '</a>';
   }
@@ -3472,6 +3612,7 @@ function afficheSecours(img){
     zoneAff.innerHTML = '';
     if (img && img.complete && img.naturalWidth > 0) {
       var copie = document.createElement('img');
+      copie.referrerPolicy = 'no-referrer';
       copie.src = img.currentSrc || img.src; copie.alt = img.alt;
       zoneAff.appendChild(copie);
     } else {
